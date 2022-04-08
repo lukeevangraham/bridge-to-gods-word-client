@@ -5,7 +5,7 @@ import { fetchAPI } from "../lib/api";
 import styles from "../styles/Home.module.css";
 
 export async function getStaticProps() {
-  const homeData = await fetchAPI("/home");
+  const homeData = await fetchAPI("/home?populate=*");
   return {
     props: { homeData },
     revalidate: 1,
@@ -24,6 +24,7 @@ export default function Home({ homeData }) {
 
       <main className={styles.main}>
         <h1>{homeData.data.attributes.testText}</h1>
+        <Image src={homeData.data.attributes.testCover.data.attributes.url} width={300} height={200} />
       </main>
 
       <footer className={styles.footer}>
