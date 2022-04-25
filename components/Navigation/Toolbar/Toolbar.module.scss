@@ -1,0 +1,16 @@
+@import "../../../styles/abstracts/variables.scss";
+
+.toolbar {
+  background-color: $color-primary;
+  font-size: 2rem;
+  font-weight: 900;
+  color: $color-white;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+    padding: 1.8rem 0;
+  }
+}
