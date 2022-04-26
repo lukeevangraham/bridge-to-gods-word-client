@@ -36,6 +36,7 @@ export default function Home({ globalData, homeData }) {
               objectFit="cover"
             />
           </div>
+            <h3 style={{ position: "absolute", top: "69%", right: "5%", fontSize: "4.5rem", color: "#eee", textAlign: "right" }}>{homeData.data.attributes.testText}</h3>
         </main>
 
         <footer>
