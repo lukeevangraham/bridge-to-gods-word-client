@@ -28,16 +28,18 @@ export default function Home({ globalData, homeData }) {
         </Head>
 
         <main>
-          <h1>{homeData.data.attributes.testText}</h1>
-          <Image
-            src={homeData.data.attributes.testCover.data.attributes.url}
-            width={300}
-            height={200}
-          />
+          {/* <h1>{homeData.data.attributes.testText}</h1> */}
+          <div style={{ position: "relative", height: "75vh", width: "100vw" }}>
+            <Image
+              src={homeData.data.attributes.testCover.data.attributes.url}
+              layout="fill"
+              objectFit="cover"
+            />
+          </div>
         </main>
 
         <footer>
-          <a
+          {/* <a
             href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
             target="_blank"
             rel="noopener noreferrer"
@@ -51,7 +53,7 @@ export default function Home({ globalData, homeData }) {
                 height={16}
               />
             </span>
-          </a>
+          </a> */}
         </footer>
       </div>
     </Layout>
