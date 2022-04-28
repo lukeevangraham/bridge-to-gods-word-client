@@ -4,6 +4,7 @@ import Layout from "../hoc/Layout/Layout";
 import { fetchAPI } from "../lib/api";
 
 // import styles from "../styles/Home.module.css";
+import classes from "./index.module.scss";
 
 export async function getStaticProps() {
   const [globalData, homeData] = await Promise.all([
@@ -27,16 +28,16 @@ export default function Home({ globalData, homeData }) {
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
-        <main>
+        <main className={classes.main}>
           {/* <h1>{homeData.data.attributes.testText}</h1> */}
-          <div style={{ position: "relative", height: "75vh", width: "100vw" }}>
+          <div className={classes.topImage}>
             <Image
               src={homeData.data.attributes.testCover.data.attributes.url}
               layout="fill"
               objectFit="cover"
             />
           </div>
-            <h3 style={{ position: "absolute", top: "69%", right: "5%", fontSize: "4.5rem", color: "#eee", textAlign: "right" }}>{homeData.data.attributes.testText}</h3>
+            <h1>{homeData.data.attributes.testText}</h1>
         </main>
 
         <footer>

@@ -1,0 +1,7 @@
+.row {
+    padding: 0 1%;
+
+  @include respond(tab-land) {
+    padding: 0 3%;
+  }
+}
