@@ -1,3 +1,5 @@
+@import "../styles/abstracts/mixins";
+
 .main {
   // background-color: orangered;
 
@@ -10,13 +12,17 @@
   h1 {
     // position: "absolute", top: "69%", right: "5%", fontSize: "4.5rem", color: "#eee", textAlign: "right"
     position: absolute;
-    top: 59%;
+    top: 60%;
     right: 5%;
     font-size: 5rem;
     color: #eee;
     text-align: right;
     font-weight: 400;
     text-transform: uppercase;
-    letter-spacing:.6rem;
+    // letter-spacing:.6rem;
+
+    @include respond(phone) {
+      top: 54%;
+    }
   }
 }
