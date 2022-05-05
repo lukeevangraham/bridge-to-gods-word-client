@@ -1,3 +1,9 @@
+@import "../abstracts/variables.scss";
+
 body {
     font-family: 'Open Sans';
+}
+
+.paragraph {
+    font-size: $default-font-size;
 }

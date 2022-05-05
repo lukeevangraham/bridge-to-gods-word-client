@@ -1,5 +1,9 @@
+@import "../abstracts/variables.scss";
+
 .row {
+  max-width: $grid-width;
     padding: 0 1%;
+    margin: 0 auto;
 
   @include respond(tab-land) {
     padding: 0 3%;

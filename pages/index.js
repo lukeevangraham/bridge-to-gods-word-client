@@ -30,14 +30,38 @@ export default function Home({ globalData, homeData }) {
 
         <main className={classes.main}>
           {/* <h1>{homeData.data.attributes.testText}</h1> */}
-          <div className={classes.topImage}>
-            <Image
-              src={homeData.data.attributes.testCover.data.attributes.url}
-              layout="fill"
-              objectFit="cover"
-            />
-          </div>
+          <header className={classes.header}>
+            <div className={classes.topImage}>
+              <Image
+                src={homeData.data.attributes.testCover.data.attributes.url}
+                layout="fill"
+                objectFit="cover"
+              />
+            </div>
             <h1>{homeData.data.attributes.testText}</h1>
+          </header>
+
+          <section className={classes.about}>
+            <div className="row">
+              <div className={classes.personal}>
+                <div className={classes.aboutPhoto}>
+                  <Image
+                    src={
+                      homeData.data.attributes.aboutPhoto.data.attributes.url
+                    }
+                    layout="fill"
+                    objectFit="cover"
+                  />
+                </div>
+                <div className={classes.text}>
+                  <p className="paragraph">
+                    Hi, I'm Carla. I'm so blessed to be a part of a translation
+                    ministry{" "}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
         </main>
 
         <footer>

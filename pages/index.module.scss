@@ -1,28 +1,53 @@
 @import "../styles/abstracts/mixins";
+@import "../styles/abstracts/variables.scss";
 
 .main {
   // background-color: orangered;
 
-  .topImage {
-    position: relative;
-    height: 65vh;
-    width: 100vw;
-  }
+  .header {
 
-  h1 {
-    // position: "absolute", top: "69%", right: "5%", fontSize: "4.5rem", color: "#eee", textAlign: "right"
-    position: absolute;
-    top: 60%;
-    right: 5%;
-    font-size: 5rem;
-    color: #eee;
-    text-align: right;
-    font-weight: 400;
-    text-transform: uppercase;
-    // letter-spacing:.6rem;
-
-    @include respond(phone) {
+    .topImage {
+      position: relative;
+      height: 65vh;
+      width: 100vw;
+    }
+    
+    h1 {
+      // position: "absolute", top: "69%", right: "5%", fontSize: "4.5rem", color: "#eee", textAlign: "right"
+      position: absolute;
+      top: 60%;
+      right: 5%;
+      font-size: 5rem;
+      color: #eee;
+      text-align: right;
+      font-weight: 400;
+      text-transform: uppercase;
+      // letter-spacing:.6rem;
+      
+      @include respond(phone) {
       top: 54%;
     }
   }
+}
+
+.about {
+  background-color: $color-primary-light;
+  margin: auto;
+  padding: 8rem 0;
+
+  .personal {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 10rem;
+
+    .aboutPhoto {
+      position: relative;
+      aspect-ratio: 1 / 1;
+    }
+
+    .text {
+      padding: 8rem 0;
+    }
+  }
+}
 }

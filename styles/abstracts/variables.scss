@@ -1,5 +1,6 @@
 // COLORS
 $color-primary: #E46332;
+$color-primary-light: #fbf0ec;
 
 $color-secondary: #E89878;
 
@@ -9,6 +10,8 @@ $color-quaternary: #632C16;
 
 $color-quinary: #B04E27;
 
+$color-grey-light-1: rgb(235, 235, 235);
+
 $color-white: #eee;
 
 $color-black: #111;
@@ -16,3 +19,6 @@ $color-black: #111;
 
 // FONT
 $default-font-size: 1.6rem;
+
+// GRID
+$grid-width: 120rem;
