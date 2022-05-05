@@ -55,7 +55,7 @@ export default function Home({ globalData, homeData }) {
                 </div>
                 <div className={classes.text}>
                   <p className="paragraph">
-                    Hi, I'm Carla. I'm so blessed to be a part of a translation
+                    Hi, I&apos;m Carla. Im so blessed to be a part of a translation
                     ministry{" "}
                   </p>
                 </div>
