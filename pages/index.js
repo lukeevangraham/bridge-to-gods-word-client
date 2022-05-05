@@ -53,11 +53,8 @@ export default function Home({ globalData, homeData }) {
                     objectFit="cover"
                   />
                 </div>
-                <div className={classes.text}>
-                  <p className="paragraph">
-                    Hi, I&apos;m Carla. Im so blessed to be a part of a translation
-                    ministry{" "}
-                  </p>
+                <div className={classes.text} dangerouslySetInnerHTML={{ __html: homeData.data.attributes.aboutText}}>
+
                 </div>
               </div>
             </div>
