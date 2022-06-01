@@ -38,15 +38,18 @@
   .personal {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-gap: 10rem;
+    align-items: center;
+    // grid-gap: 10rem;
 
     .aboutPhoto {
       position: relative;
+      border-radius: 3px;
+      overflow: hidden;
       aspect-ratio: 1 / 1;
     }
 
     .text {
-      padding: 8rem 0;
+      padding: 8rem 8rem;
     }
   }
 }
