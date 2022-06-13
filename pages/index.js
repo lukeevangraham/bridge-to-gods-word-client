@@ -28,7 +28,6 @@ export async function getStaticProps() {
   const [globalData, homeData] = await Promise.all([
     fetchAPI("/global?populate=*,navbar.links"),
     fetchAPI(`/home?${query}`),
-    console.log("QUERY: ", query),
   ]);
 
   // console.log("GETTING PROPS")

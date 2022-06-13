@@ -9,7 +9,7 @@ const sectionComponents = {
 
 // DISPLAY A SECTION INDIVIDUALLY
 const Section = ({ sectionData }) => {
-  console.log("sectionData: ", sectionData);
+  // console.log("sectionData: ", sectionData);
   const SectionComponent = sectionComponents[sectionData.__component];
 
   if (!SectionComponent) {
@@ -23,7 +23,7 @@ const Section = ({ sectionData }) => {
 // DISPLAY THE LIST OF SECTIONS
 const Sections = ({ sections }) => (
   <div className={classes.Sections}>
-    {console.log("SECTIONS: ", sections)}
+    {/* {console.log("SECTIONS: ", sections)} */}
     {sections.map((section) => (
       <div className={classes.Sections__section} key={section.id}>
         <Section sectionData={section} />
