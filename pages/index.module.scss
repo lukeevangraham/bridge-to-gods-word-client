@@ -38,7 +38,6 @@
   .personal {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-gap: 10rem;
 
     .aboutPhoto {
       position: relative;
@@ -46,7 +45,7 @@
     }
 
     .text {
-      padding: 8rem 0;
+      padding: 8rem 8rem;
     }
   }
 }

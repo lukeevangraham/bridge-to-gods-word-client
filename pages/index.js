@@ -1,16 +1,40 @@
 import Head from "next/head";
+import qs from "qs";
 import Image from "next/image";
 import Layout from "../hoc/Layout/Layout";
+import Sections from "../components/Sections/Sections";
 import { fetchAPI } from "../lib/api";
 
 // import styles from "../styles/Home.module.css";
 import classes from "./index.module.scss";
 
 export async function getStaticProps() {
+  // populate: ['contentSections']
+  const query = qs.stringify(
+    {
+      populate: {
+        contentSections: {
+          populate: "*",
+        },
+        aboutPhoto: "*",
+        testCover: "*",
+      },
+    },
+    {
+      encodeValuesOnly: true,
+    }
+  );
+
   const [globalData, homeData] = await Promise.all([
     fetchAPI("/global?populate=*,navbar.links"),
-    fetchAPI("/home?populate=*"),
+    fetchAPI(`/home?${query}`),
+    console.log("QUERY: ", query),
   ]);
+
+  // console.log("GETTING PROPS")
+  // console.log("QUERY: ", query)
+  // console.log("HOMEDATA: ", homeData)
+
   return {
     props: { globalData: globalData.data.attributes, homeData },
     revalidate: 1,
@@ -18,7 +42,7 @@ export async function getStaticProps() {
 }
 
 export default function Home({ globalData, homeData }) {
-  console.log("HOME: ", homeData);
+  // console.log("HOME: ", homeData.data.attributes);
   return (
     <Layout global={globalData}>
       <div>
@@ -53,12 +77,17 @@ export default function Home({ globalData, homeData }) {
                     objectFit="cover"
                   />
                 </div>
-                <div className={classes.text} dangerouslySetInnerHTML={{ __html: homeData.data.attributes.aboutText}}>
-
-                </div>
+                <div
+                  className={classes.text}
+                  dangerouslySetInnerHTML={{
+                    __html: homeData.data.attributes.aboutText,
+                  }}
+                ></div>
               </div>
             </div>
           </section>
+
+          <Sections sections={homeData.data.attributes.contentSections} />
         </main>
 
         <footer>
