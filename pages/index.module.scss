@@ -38,9 +38,13 @@
   .personal {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    align-items: center;
+    // grid-gap: 10rem;
 
     .aboutPhoto {
       position: relative;
+      border-radius: 3px;
+      overflow: hidden;
       aspect-ratio: 1 / 1;
     }
 

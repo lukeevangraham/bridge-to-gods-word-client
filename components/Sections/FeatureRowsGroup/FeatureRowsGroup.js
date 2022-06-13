@@ -1,9 +1,10 @@
-const FeatureRowsGroup = ({  data }) => (
-    <div>{console.log("DATA: ", data)}
-    {data.features.map(feature => (
-        <div>{feature.title}</div>
+const FeatureRowsGroup = ({ data }) => (
+  <div>
+    {console.log("DATA: ", data)}
+    {data.features.map((feature) => (
+      <div>{feature.title}</div>
     ))}
-    </div>
-)
+  </div>
+);
 
 export default FeatureRowsGroup;
