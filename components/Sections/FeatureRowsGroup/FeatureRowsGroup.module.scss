@@ -1,3 +1,32 @@
-.Title {
-    background-color: red;
+.Feature {
+  // background-color: orangered;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+
+  .Text {
+    // background-color: red;
+  }
+
+  .Image {
+    position: relative;
+    height: 40rem;
+    // padding: 5rem;
+    // margin: 5rem;
+  }
+}
+
+.ReverseRow {
+//   background-color: orangered;
+
+  .Text {
+    grid-column: 2 / 3;
+    grid-row: 1 /2;
+  }
+
+  .Image {
+    grid-column: 1 / 2;
+  }
 }

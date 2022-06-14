@@ -9,25 +9,10 @@ import { fetchAPI } from "../lib/api";
 import classes from "./index.module.scss";
 
 export async function getStaticProps() {
-  // populate: ['contentSections']
-  const query = qs.stringify(
-    {
-      populate: {
-        contentSections: {
-          populate: "*",
-        },
-        aboutPhoto: "*",
-        testCover: "*",
-      },
-    },
-    {
-      encodeValuesOnly: true,
-    }
-  );
 
   const [globalData, homeData] = await Promise.all([
     fetchAPI("/global?populate=*,navbar.links"),
-    fetchAPI(`/home?${query}`),
+    fetchAPI(`/home?populate=deep`),
   ]);
 
   // console.log("GETTING PROPS")
@@ -41,7 +26,8 @@ export async function getStaticProps() {
 }
 
 export default function Home({ globalData, homeData }) {
-  // console.log("HOME: ", homeData.data.attributes);
+  console.log("HOME: ", homeData.data.attributes);
+  
   return (
     <Layout global={globalData}>
       <div>
