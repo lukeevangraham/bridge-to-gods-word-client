@@ -10,13 +10,13 @@ const FeatureRowsGroup = ({ data }) => (
         key={feature.id}
         className={
           index % 2 === 1
-            ? `${classes.Feature} ${classes.ReverseRow}`
+            ? `${classes.Feature} ${classes.Feature__ReverseRow}`
             : classes.Feature
         }
       >
         <div className={classes.Text}>
-          <div>{feature.title}</div>
-          <div>{feature.description}</div>
+          <h2>{feature.title}</h2>
+          <p>{feature.description}</p>
         </div>
         <div className={classes.Image}>
           <Image
