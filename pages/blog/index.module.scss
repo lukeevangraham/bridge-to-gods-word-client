@@ -1,0 +1,29 @@
+@import "../../styles/abstracts/variables.scss";
+
+.BlogCards {
+  padding: 5rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(39rem, 1fr));
+  grid-gap: 1.5rem;
+  font-size: 1.6rem;
+
+  &__BlogCard {
+    // background-color: orangered;
+    background-color: lighten($color-secondary, 25%);
+    padding: 1rem;
+    border-radius: 7px;
+
+    &__Title {
+      font-size: 2.3rem;
+      // background-color: orangered;
+    }
+
+    &__Date {
+      // background-color: green;
+    }
+
+    &__Excerpt {
+      // color: blue;
+    }
+  }
+}
