@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { fetchAPI } from "../../lib/api";
 import Layout from "../../hoc/Layout/Layout";
 
@@ -32,9 +33,14 @@ const Blog = ({ allNewsData, global }) => {
       <div className={`row ${classes.BlogCards}`}>
         {allNewsData.data.map((blog) => (
           <div key={blog.id} className={classes.BlogCards__BlogCard}>
-            <div className={classes.BlogCards__BlogCard__Title}>
-              {blog.attributes.Title}
-            </div>
+            <Link href={`/blog/${blog.attributes.slug}`}>
+              <a>
+                <div className={classes.BlogCards__BlogCard__Title}>
+                  {blog.attributes.Title}
+                </div>
+              </a>
+            </Link>
+
             <div className={classes.BlogCards__BlogCard__Date}>
               {blog.attributes.DatePosted}
             </div>
@@ -42,7 +48,7 @@ const Blog = ({ allNewsData, global }) => {
               {`${stripHtml(blog.attributes.Body)
                 .split(" ")
                 .slice(0, 20)
-                .join(" ")}...`}
+                .join(" ")} ...`}
             </div>
           </div>
         ))}
