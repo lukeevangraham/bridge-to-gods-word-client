@@ -1,5 +1,32 @@
 .BlogSingle {
   // background-color: orangered;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   padding: 5rem 0;
+  max-width: 50rem;
+
+  &__Title {
+  }
+
+  &__DatePosted {
+  }
+
+  &__Body {
+    img {
+      max-width: 50rem;
+    }
+    // * {
+    //   max-width: 50rem;
+    // }
+
+    //  p:not(:has(> img)) {
+    //   // background-color: orangered;
+    //   max-width: 10rem;
+    //  }
+    // p {
+    //   max-width: 50rem;
+    // }
+    // p > img {
+    //   max-width: unset;
+    // }
+  }
 }

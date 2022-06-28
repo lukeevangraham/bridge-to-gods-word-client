@@ -28,7 +28,14 @@ const Blog = ({ blogData, global }) => (
   <Layout global={global}>
     <div className={`row ${classes.BlogSingle}`}>
       {console.log("HERE: ", blogData)}
-      <div>{blogData.attributes.Title}</div>
+      <div className={classes.BlogSingle__Title}>{blogData.attributes.Title}</div>
+      <div className={classes.BlogSingle__DatePosted}>
+        {blogData.attributes.DatePosted}
+      </div>
+      <div
+        className={classes.BlogSingle__Body}
+        dangerouslySetInnerHTML={{ __html: blogData.attributes.Body }}
+      ></div>
     </div>
   </Layout>
 );
