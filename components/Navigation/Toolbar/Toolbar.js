@@ -1,8 +1,9 @@
 import Link from "next/link";
+import DrawerToggle from "../SideDrawer/DrawerToggle/DrawerToggle";
 
 import classes from "./Toolbar.module.scss";
 
-const Toolbar = ({ children }) => (
+const Toolbar = ({ children, drawerToggleClicked }) => (
   <div className={classes.toolbar}>
     <div className={`${classes.toolbar__inner} row`}>
       <Link href="/">
@@ -11,6 +12,7 @@ const Toolbar = ({ children }) => (
         </a>
       </Link>
       {children}
+      <DrawerToggle clicked={drawerToggleClicked} />
     </div>
   </div>
 );

@@ -1,0 +1,11 @@
+.SideDrawer {
+  background-color: orangered;
+}
+
+.Open {
+  transform: translateX(0);
+}
+
+.Close {
+  transform: translateX(100%);
+}

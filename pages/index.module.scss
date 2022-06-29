@@ -3,15 +3,15 @@
 
 .main {
   // background-color: orangered;
+  background-color: $color-primary-light;
 
   .header {
-
     .topImage {
       position: relative;
       height: 65vh;
       width: 100vw;
     }
-    
+
     h1 {
       // position: "absolute", top: "69%", right: "5%", fontSize: "4.5rem", color: "#eee", textAlign: "right"
       position: absolute;
@@ -23,34 +23,51 @@
       font-weight: 400;
       text-transform: uppercase;
       // letter-spacing:.6rem;
-      
+
       @include respond(phone) {
-      top: 54%;
+        top: 54%;
+      }
     }
   }
-}
 
-.about {
-  background-color: $color-primary-light;
-  margin: auto;
-  padding: 8rem 0;
+  .mission {
+    background-color: $color-primary-light;
+    text-align: center;
+    // display: flex;
+    // flex-direction: column;
+    // align-items: center;
 
-  .personal {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    align-items: center;
-    // grid-gap: 10rem;
-
-    .aboutPhoto {
-      position: relative;
-      border-radius: 3px;
-      overflow: hidden;
-      aspect-ratio: 1 / 1;
+    &__Statement {
+      font-size: 3rem;
+      margin-bottom: 3rem;
     }
-
-    .text {
-      padding: 8rem 8rem;
+    &__Explanation {
+      font-size: 1.7rem;
+      line-height: 1.5;
     }
   }
-}
+
+  .about {
+    // background-color: $color-primary-light;
+    margin: auto;
+    padding: 8rem 0;
+
+    .personal {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      align-items: center;
+      // grid-gap: 10rem;
+
+      .aboutPhoto {
+        position: relative;
+        border-radius: 3px;
+        overflow: hidden;
+        aspect-ratio: 1 / 1;
+      }
+
+      .text {
+        padding: 8rem 8rem;
+      }
+    }
+  }
 }

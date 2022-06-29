@@ -9,7 +9,6 @@ import { fetchAPI } from "../lib/api";
 import classes from "./index.module.scss";
 
 export async function getStaticProps() {
-
   const [globalData, homeData] = await Promise.all([
     fetchAPI("/global?populate=*,navbar.links"),
     fetchAPI(`/home?populate=deep`),
@@ -27,7 +26,7 @@ export async function getStaticProps() {
 
 export default function Home({ globalData, homeData }) {
   console.log("HOME: ", homeData.data.attributes);
-  
+
   return (
     <Layout global={globalData}>
       <div>
@@ -49,6 +48,17 @@ export default function Home({ globalData, homeData }) {
             </div>
             <h1>{homeData.data.attributes.testText}</h1>
           </header>
+
+          <section className={`${classes.mission} u-padding-y-medium`}>
+            <div className="row">
+              <div className={classes.mission__Statement}>
+                {homeData.data.attributes.MissionStatement}
+              </div>
+              <div className={classes.mission__Explanation}>
+                {homeData.data.attributes.MissionExplanation}
+              </div>
+            </div>
+          </section>
 
           <section className={classes.about}>
             <div className="row">
