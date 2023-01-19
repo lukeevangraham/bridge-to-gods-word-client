@@ -7,7 +7,7 @@ import classes from "./index.module.scss";
 export async function getStaticProps() {
   const [globalData, allNewsData] = await Promise.all([
     fetchAPI("/global?populate=*,navbar.links"),
-    fetchAPI(`/blogs?populate=deep`),
+    fetchAPI(`/blogs?sort=DatePosted:desc&populate=deep`),
   ]);
   return {
     props: {
