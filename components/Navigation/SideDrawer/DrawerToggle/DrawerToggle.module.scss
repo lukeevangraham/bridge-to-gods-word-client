@@ -8,6 +8,11 @@
   border-radius: 50%;
   text-align: center;
   cursor: pointer;
+  display: none;
+
+  @include respond(tab-port) {
+    display: block;
+  }
 
   &__icon {
     position: relative;

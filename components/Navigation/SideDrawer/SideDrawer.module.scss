@@ -1,5 +1,19 @@
+@import "../../../styles/abstracts/variables.scss";
+
 .SideDrawer {
   background-color: orangered;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 10;
+  height: 100%;
+  width: 33rem;
+  color: $color-white;
+  padding: 4rem;
+  font-size: $default-font-size;
+  box-shadow: 0 0 2rem rgba(17, 17, 17, .556);
+  transition: transform .3s ease-out;
+
 }
 
 .Open {
