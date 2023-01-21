@@ -3,7 +3,7 @@ import { fetchAPI } from "../../lib/api";
 
 export async function getStaticProps() {
   const [globalData, aboutData] = await Promise.all([
-    fetchAPI("/global?populate=*,navbar.links"),
+    fetchAPI("/global?populate=*,navbar.links,navbar.Button"),
     fetchAPI(`/about?populate=deep`),
   ]);
   return {

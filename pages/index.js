@@ -10,7 +10,7 @@ import classes from "./index.module.scss";
 
 export async function getStaticProps() {
   const [globalData, homeData] = await Promise.all([
-    fetchAPI("/global?populate=*,navbar.links"),
+    fetchAPI("/global?populate=*,navbar.links,navbar.Button"),
     fetchAPI(`/home?populate=deep`),
   ]);
 
@@ -25,7 +25,6 @@ export async function getStaticProps() {
 }
 
 export default function Home({ globalData, homeData }) {
-  console.log("HOME: ", homeData.data.attributes);
 
   return (
     <Layout global={globalData}>

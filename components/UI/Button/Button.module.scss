@@ -1,0 +1,20 @@
+@import "../../../styles/abstracts/variables.scss";
+
+.Button {
+  background-color: $color-quinary-light;
+  padding: 1rem 3rem;
+  border-radius: 0.6rem;
+  color: $color-white;
+  transition: all 0.3s;
+//   border: 1px solid $color-primary-light;
+//   box-shadow: 0 .2rem 5px rgba($color-white, .6);
+
+  &:hover {
+    background-color: $color-quinary-lighter;
+    // color: $color-quaternary;
+  }
+
+  &:active {
+    transform: translateY(.4rem);
+  }
+}

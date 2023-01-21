@@ -16,7 +16,7 @@ export async function getStaticProps({ params }) {
   console.log("PARAMS: ", params);
   const [blogData, global] = await Promise.all([
     fetchAPI(`/blogs?filters[slug][$eq]=${params.slug}`),
-    fetchAPI("/global?populate=*,navbar.links"),
+    fetchAPI("/global?populate=*,navbar.links,navbar.Button"),
   ]);
   return {
     props: { blogData: blogData.data[0], global: global.data.attributes },

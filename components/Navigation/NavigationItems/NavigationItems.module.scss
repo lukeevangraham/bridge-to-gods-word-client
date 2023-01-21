@@ -1,3 +1,4 @@
+@import "../../../styles/abstracts/variables.scss";
 @import "../../../styles/abstracts/mixins";
 
 .NavItems {
@@ -5,8 +6,18 @@
     // width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     font-size: 1.6rem;
     font-weight: 700;
+    gap: 7rem;
+    letter-spacing: 1.5px;
+    
+    & > * {
+        transition: all 0.3s;
+        &:hover {
+            color: $color-quaternary;
+        }
+    }
 
     @include respond(tab-port) {
         flex-direction: column;
