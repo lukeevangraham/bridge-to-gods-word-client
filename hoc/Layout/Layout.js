@@ -17,7 +17,7 @@ const Layout = ({ global, children }) => {
   };
 
   return (
-    <>{console.log("GLOBAL: ", global)}
+    <>
       <Toolbar drawerToggleClicked={sideDrawerToggleHandler}>
         <div className={classes.Layout__DesktopOnly}>
           <NavigationItems links={global.navbar.links} button={global.navbar.Button} />
@@ -27,6 +27,7 @@ const Layout = ({ global, children }) => {
         open={showSideDrawer}
         closed={sideDrawerClosedHandler}
         links={global.navbar.links}
+        button={global.navbar.Button}
       />
       {children}
     </>

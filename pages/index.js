@@ -43,6 +43,7 @@ export default function Home({ globalData, homeData }) {
                 src={homeData.data.attributes.testCover.data.attributes.url}
                 layout="fill"
                 objectFit="cover"
+                priority
               />
             </div>
             <h1>{homeData.data.attributes.testText}</h1>

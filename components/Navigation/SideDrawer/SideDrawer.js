@@ -4,7 +4,7 @@ import NavigationItems from "../NavigationItems/NavigationItems";
 
 import classes from "./SideDrawer.module.scss";
 
-const SideDrawer = ({ open, closed, links }) => {
+const SideDrawer = ({ open, closed, links, button }) => {
   let attachedClasses = [classes.SideDrawer, classes.Close];
   if (open) {
     attachedClasses = [classes.SideDrawer, classes.Open];
@@ -15,7 +15,7 @@ const SideDrawer = ({ open, closed, links }) => {
       <Backdrop show={open} clicked={closed} />
       <div className={attachedClasses.join(" ")} onClick={closed}>
         <nav>
-          <NavigationItems links={links} />
+          <NavigationItems links={links} button={button} />
         </nav>
       </div>
     </>
