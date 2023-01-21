@@ -1,0 +1,43 @@
+@import "../../../styles/abstracts/variables.scss";
+
+.Breadcrumb {
+  position: relative;
+  height: 29em;
+
+  & > *:not(:last-child) {
+    height: 100%;
+  }
+
+  &__colorOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    background-image: linear-gradient(
+      to bottom right,
+      rgba($color-quinary, 0.6),
+      rgba($color-secondary, 0.6)
+    );
+  }
+  &__BgImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 0;
+  }
+
+  &__title {
+    position: absolute;
+    // background-color: orangered;
+    z-index: 2;
+    color: $color-white;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-shadow: 0 0 6px rgba($color-black, .7);
+    // text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+}

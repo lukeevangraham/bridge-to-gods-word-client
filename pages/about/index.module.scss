@@ -1,0 +1,25 @@
+@import "../../styles/abstracts/mixins";
+
+.About {
+  &__Bio {
+    display: flex;
+    gap: 3rem;
+    margin-top: 9rem;
+
+    &__Text {
+      flex: 1 0 60%;
+    }
+
+    &__Image {
+      flex: 0 1 40%;
+      position: relative;
+      height: 80rem;
+      min-height: 50rem;
+    }
+
+    @include respond(tab-port) {
+        flex-direction: column-reverse;
+    }
+
+  }
+}

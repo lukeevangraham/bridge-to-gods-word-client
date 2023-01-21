@@ -9,9 +9,10 @@ import { fetchAPI } from "../lib/api";
 import classes from "./index.module.scss";
 
 export async function getStaticProps() {
-  const [globalData, homeData] = await Promise.all([
+  const [globalData, homeData, latestBlog] = await Promise.all([
     fetchAPI("/global?populate=*,navbar.links,navbar.Button"),
     fetchAPI(`/home?populate=deep`),
+    fetchAPI(`/blogs?sort=DatePosted:desc&pagination[pageSize]=1`)
   ]);
 
   // console.log("GETTING PROPS")
@@ -19,15 +20,16 @@ export async function getStaticProps() {
   // console.log("HOMEDATA: ", homeData)
 
   return {
-    props: { globalData: globalData.data.attributes, homeData },
+    props: { globalData: globalData.data.attributes, homeData, latestBlog: latestBlog.data[0].attributes },
     revalidate: 1,
   };
 }
 
-export default function Home({ globalData, homeData }) {
+export default function Home({ globalData, homeData, latestBlog }) {
 
   return (
     <Layout global={globalData}>
+      {console.log("Latest Blog: ", latestBlog)}
       <div>
         <Head>
           <title>Carla Unseth - A Bridge To God&apos;s Word</title>
