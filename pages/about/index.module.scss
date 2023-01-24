@@ -1,25 +1,49 @@
 @import "../../styles/abstracts/mixins";
+@import "../../styles/abstracts/variables.scss";
 
 .About {
   &__Bio {
     display: flex;
     gap: 3rem;
     margin-top: 9rem;
+    justify-content: space-evenly;
 
     &__Text {
-      flex: 1 0 60%;
+      flex: 0 0 44%;
     }
 
     &__Image {
-      flex: 0 1 40%;
-      position: relative;
-      height: 80rem;
-      min-height: 50rem;
+      flex: 0 0 33%;
+
+      &__Media {
+        position: relative;
+        height: 80rem;
+        min-height: 50rem;
+      }
+
+      &__Caption {
+        // background-color: orangered;
+        margin-top: 4rem;
+        padding-top: 3rem;
+        font-size: $default-font-size;
+        position: relative;
+        font-style: italic;
+        margin-bottom: 5rem;
+
+        &:before {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 0;
+          height: 5px;
+          width: 60%;
+          border-bottom: 5px solid $color-secondary;
+        }
+      }
     }
 
     @include respond(tab-port) {
-        flex-direction: column-reverse;
+      flex-direction: column-reverse;
     }
-
   }
 }

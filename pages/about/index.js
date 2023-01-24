@@ -40,12 +40,15 @@ const About = ({ global, aboutData }) => (
           ></div>
 
           <div className={classes.About__Bio__Image}>
-            <Image
-              src={aboutData.BioPhoto.data.attributes.url}
-              alt={aboutData.BioPhoto.data.attributes.alternativeText}
-              layout="fill"
-              objectFit="cover"
-            />
+            <div className={classes.About__Bio__Image__Media}>
+              <Image
+                src={aboutData.BioPhoto.data.attributes.url}
+                alt={aboutData.BioPhoto.data.attributes.alternativeText}
+                layout="fill"
+                objectFit="cover"
+              />
+            </div>
+            <div className={classes.About__Bio__Image__Caption}>{aboutData.BioPhoto.data.attributes.caption}</div>
           </div>
         </section>
       </div>
