@@ -5,7 +5,9 @@
   &__Bio {
     display: flex;
     gap: 3rem;
-    margin-top: 9rem;
+    // margin-top: 9rem;
+    // margin-bottom: 9rem;
+    // margin: 9rem inherit;
     justify-content: space-evenly;
 
     &__Text {

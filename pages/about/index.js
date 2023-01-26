@@ -32,7 +32,7 @@ const About = ({ global, aboutData }) => (
         title={"About"}
         bgImage={`https://res.cloudinary.com/bridge-to-god-s-word/image/upload/v1674264828/maksim_shutov_kd_L_Kidl6_Lrc_unsplash_9f846d115f.jpg?updated_at=2023-01-21T01:33:53.290Z`}
       />
-      <div className={classes.About}>
+      <main className={classes.About}>
         <section className={[classes.About__Bio, "row"].join(" ")}>
           <div
             className={classes.About__Bio__Text}
@@ -51,7 +51,7 @@ const About = ({ global, aboutData }) => (
             <div className={classes.About__Bio__Image__Caption}>{aboutData.BioPhoto.data.attributes.caption}</div>
           </div>
         </section>
-      </div>
+      </main>
       {console.log("ABOUT: ", aboutData)}
     </>
   </Layout>

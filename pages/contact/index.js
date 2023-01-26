@@ -1,6 +1,7 @@
+import { useState } from "react";
 import Layout from "../../hoc/Layout/Layout";
 import Breadcrumb from "../../components/UI/Breadcrumb/Breadcrumb";
-import { fetchAPI } from "../../lib/api"
+import { fetchAPI } from "../../lib/api";
 
 export async function getStaticProps() {
   const [globalData, contactData] = await Promise.all([
@@ -16,11 +17,98 @@ export async function getStaticProps() {
   };
 }
 
-const Contact = ({ global, contactData }) => (
-  <Layout global={global}>
-    <Breadcrumb title="Contact" bgImage={"https://res.cloudinary.com/bridge-to-god-s-word/image/upload/v1674277225/amador_loureiro_B_Vy_Nlch_Wqzs_unsplash_bd31f5f21c.jpg?updated_at=2023-01-21T05:00:30.095Z"} />
-    <div>Contact</div>
-  </Layout>
-);
+const Contact = ({ global, contactData }) => {
+  const [messageStatus, setMessageStatus] = useState();
+
+  const sendMessage = async (e) => {
+    e.preventDefault();
+
+    setMessageStatus(1);
+
+    const res = await fetch("/api/contact", {
+      body: JSON.stringify({
+        name: e.target.name.value,
+        phone: e.target.phone.value,
+        email: e.target.email.value,
+        message: e.target.message.value,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+    });
+
+    const result = await res.json();
+    console.log("RES: ", result);
+    result.status === 200 ? setMessageStatus(200) : null;
+  };
+
+  let contactForm = "";
+
+  switch (messageStatus) {
+    case 0:
+      break;
+    case 200:
+      contactForm = (
+        <div>
+          <h3>Your message was successfully delivered</h3>
+        </div>
+      );
+      break;
+    case 1:
+      contactForm = <div>Sending...</div>;
+      break;
+    default:
+      contactForm = (
+        <>
+          <form onSubmit={sendMessage}>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Your First & Last Name"
+              required
+            />
+            <input
+              type="tel"
+              name="phone"
+              id="phone"
+              placeholder="Your Phone"
+            />
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Your Email"
+              required
+            />
+            <textarea
+              name="message"
+              id="message"
+              cols="30"
+              rows="10"
+            ></textarea>
+            <button>Submit</button>
+          </form>
+        </>
+      );
+      break;
+  }
+
+  return (
+    <Layout global={global}>
+      <Breadcrumb
+        title="Contact"
+        bgImage={
+          "https://res.cloudinary.com/bridge-to-god-s-word/image/upload/v1674277225/amador_loureiro_B_Vy_Nlch_Wqzs_unsplash_bd31f5f21c.jpg?updated_at=2023-01-21T05:00:30.095Z"
+        }
+      />
+      <main>
+        <h1>Contact Me</h1>
+        <div>{contactForm}</div>
+      </main>
+    </Layout>
+  );
+};
 
 export default Contact;
