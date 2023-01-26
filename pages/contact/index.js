@@ -3,6 +3,8 @@ import Layout from "../../hoc/Layout/Layout";
 import Breadcrumb from "../../components/UI/Breadcrumb/Breadcrumb";
 import { fetchAPI } from "../../lib/api";
 
+import classes from "./index.module.scss";
+
 export async function getStaticProps() {
   const [globalData, contactData] = await Promise.all([
     fetchAPI("/global?populate=*,navbar.links,navbar.Button"),
@@ -61,33 +63,42 @@ const Contact = ({ global, contactData }) => {
     default:
       contactForm = (
         <>
-          <form onSubmit={sendMessage}>
-            <input
-              type="text"
-              name="name"
-              id="name"
-              placeholder="Your First & Last Name"
-              required
-            />
-            <input
-              type="tel"
-              name="phone"
-              id="phone"
-              placeholder="Your Phone"
-            />
-            <input
-              type="email"
-              name="email"
-              id="email"
-              placeholder="Your Email"
-              required
-            />
-            <textarea
-              name="message"
-              id="message"
-              cols="30"
-              rows="10"
-            ></textarea>
+          <form onSubmit={sendMessage} className={classes.Form}>
+            <div className={classes.Form__group}>
+              <input
+                className={classes.Form__input}
+                type="text"
+                name="name"
+                id="name"
+                required
+              />
+              <label htmlFor="name" className={classes.Form__label}>
+                Your First & Last Name
+              </label>
+            </div>
+            <div className={classes.Form__group}>
+              <input type="tel" name="phone" id="phone" />
+              <label htmlFor="phone" className={classes.Form__label}>
+                Your Phone
+              </label>
+            </div>
+            <div className={classes.Form__group}>
+              <input type="email" name="email" id="email" required />
+              <label htmlFor="email" className={classes.Form__label}>
+                Your Email
+              </label>
+            </div>
+            <div className={classes.Form__group}>
+              <textarea
+                name="message"
+                id="message"
+                cols="30"
+                rows="10"
+              ></textarea>
+              <label htmlFor="message" className={classes.Form__label}>
+                Your Message
+              </label>
+            </div>
             <button>Submit</button>
           </form>
         </>
@@ -103,7 +114,7 @@ const Contact = ({ global, contactData }) => {
           "https://res.cloudinary.com/bridge-to-god-s-word/image/upload/v1674277225/amador_loureiro_B_Vy_Nlch_Wqzs_unsplash_bd31f5f21c.jpg?updated_at=2023-01-21T05:00:30.095Z"
         }
       />
-      <main>
+      <main className={classes.Contact}>
         <h1>Contact Me</h1>
         <div>{contactForm}</div>
       </main>
