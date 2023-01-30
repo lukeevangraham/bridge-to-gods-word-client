@@ -2,6 +2,7 @@ import { useState } from "react";
 import Layout from "../../hoc/Layout/Layout";
 import Breadcrumb from "../../components/UI/Breadcrumb/Breadcrumb";
 import { fetchAPI } from "../../lib/api";
+import Button from "../../components/UI/Button/Button";
 
 import classes from "./index.module.scss";
 
@@ -71,19 +72,33 @@ const Contact = ({ global, contactData }) => {
                 name="name"
                 id="name"
                 required
+                placeholder="Your First & Last Name"
               />
               <label htmlFor="name" className={classes.Form__label}>
                 Your First & Last Name
               </label>
             </div>
             <div className={classes.Form__group}>
-              <input type="tel" name="phone" id="phone" />
+              <input
+                type="tel"
+                name="phone"
+                id="phone"
+                className={classes.Form__input}
+                placeholder="Your Phone"
+              />
               <label htmlFor="phone" className={classes.Form__label}>
                 Your Phone
               </label>
             </div>
             <div className={classes.Form__group}>
-              <input type="email" name="email" id="email" required />
+              <input
+                type="email"
+                name="email"
+                id="email"
+                required
+                className={classes.Form__input}
+                placeholder="Your Email"
+              />
               <label htmlFor="email" className={classes.Form__label}>
                 Your Email
               </label>
@@ -94,6 +109,8 @@ const Contact = ({ global, contactData }) => {
                 id="message"
                 cols="30"
                 rows="10"
+                className={classes.Form__input}
+                placeholder="Your Message"
               ></textarea>
               <label htmlFor="message" className={classes.Form__label}>
                 Your Message
@@ -115,8 +132,10 @@ const Contact = ({ global, contactData }) => {
         }
       />
       <main className={classes.Contact}>
-        <h1>Contact Me</h1>
-        <div>{contactForm}</div>
+        <div className="row">
+          <h1>Contact Me</h1>
+          <div>{contactForm}</div>
+        </div>
       </main>
     </Layout>
   );
