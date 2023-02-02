@@ -131,10 +131,12 @@ const Contact = ({ global, contactData }) => {
           "https://res.cloudinary.com/bridge-to-god-s-word/image/upload/v1674277225/amador_loureiro_B_Vy_Nlch_Wqzs_unsplash_bd31f5f21c.jpg?updated_at=2023-01-21T05:00:30.095Z"
         }
       />
-      <main className={classes.Contact}>
-        <div className="row">
-          <h1>Contact Me</h1>
-          <div>{contactForm}</div>
+      <main>
+        <div className={classes.Contact}>
+          <div className="row">
+            <h1 className="u-margin-bottom-medium">Contact Me</h1>
+            <div>{contactForm}</div>
+          </div>
         </div>
       </main>
     </Layout>

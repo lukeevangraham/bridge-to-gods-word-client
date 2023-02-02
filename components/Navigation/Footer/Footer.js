@@ -15,9 +15,12 @@ const Footer = () => (
       </div>
     </div>
     <div className={[classes.Footer__Bottom, "row"].join(" ")}>
-      <div>&copy; {new Date().getFullYear()} Carla Unseth</div>
-      <div>Graham Web Works</div>
-      <div>Social Icons</div>
+      <div className={classes.Footer__Bottom__Border}></div>
+      <div className={classes.Footer__Bottom__Content}>
+        <div>&copy; {new Date().getFullYear()} Carla Unseth</div>
+        <div>Graham Web Works</div>
+        <div>Social Icons</div>
+      </div>
     </div>
   </div>
 );

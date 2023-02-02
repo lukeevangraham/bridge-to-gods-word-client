@@ -1,6 +1,7 @@
 import Head from "next/head";
 import qs from "qs";
 import Image from "next/image";
+import Link from "next/link";
 import Layout from "../hoc/Layout/Layout";
 import Sections from "../components/Sections/Sections";
 import { fetchAPI } from "../lib/api";
@@ -12,21 +13,22 @@ export async function getStaticProps() {
   const [globalData, homeData, latestBlog] = await Promise.all([
     fetchAPI("/global?populate=*,navbar.links,navbar.Button"),
     fetchAPI(`/home?populate=deep`),
-    fetchAPI(`/blogs?sort=DatePosted:desc&pagination[pageSize]=1`)
+    fetchAPI(
+      `/blogs?sort=DatePosted:desc&pagination[pageSize]=1&populate[0]=blog_topics`
+    ),
   ]);
 
-  // console.log("GETTING PROPS")
-  // console.log("QUERY: ", query)
-  // console.log("HOMEDATA: ", homeData)
-
   return {
-    props: { globalData: globalData.data.attributes, homeData, latestBlog: latestBlog.data[0].attributes },
+    props: {
+      globalData: globalData.data.attributes,
+      homeData,
+      latestBlog: latestBlog.data[0].attributes,
+    },
     revalidate: 1,
   };
 }
 
 export default function Home({ globalData, homeData, latestBlog }) {
-
   return (
     <Layout global={globalData}>
       {console.log("Latest Blog: ", latestBlog)}
@@ -81,6 +83,45 @@ export default function Home({ globalData, homeData, latestBlog }) {
                   }}
                 ></div>
               </div>
+            </div>
+          </section>
+
+          <section className={classes.latestBlog}>
+            <div className="row">
+              <h2>Latest Blog</h2>
+              <div className={classes.latestBlog__DateBox}>
+                <div>
+                  {new Date(
+                    latestBlog.DatePosted.replace(/-/g, "/")
+                  ).toLocaleDateString("en-US", { day: "numeric" })}
+                </div>
+                <div>
+                  {new Date(
+                    latestBlog.DatePosted.replace(/-/g, "/")
+                  ).toLocaleDateString("en-US", { month: "short" })}
+                </div>
+              </div>
+              <Link href={`/blog/${latestBlog.slug}`}>
+                <a>
+                  <h3>{latestBlog.Title}</h3>
+                </a>
+              </Link>
+              <div>
+                {latestBlog.Body.replace(/<br>/g, " ")
+                  .replace(/<[^>]+>/g, "")
+                  .split(" ")
+                  .splice(0, 32)
+                  .join(" ")}
+                ...
+              </div>
+              <div>
+                {latestBlog.blog_topics.data.map((topic) => (
+                  <div>{topic.attributes.Topic}</div>
+                ))}
+              </div>
+              <h4>
+                <Link href="/blog">See other blog posts</Link>
+              </h4>
             </div>
           </section>
 

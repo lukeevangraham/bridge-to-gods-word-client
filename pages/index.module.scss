@@ -4,7 +4,7 @@
 .main {
   // background-color: orangered;
   background-color: $color-primary-light;
-  margin: 0;
+  padding-top: 0;
 
   .header {
     .topImage {
@@ -68,6 +68,39 @@
 
       .text {
         padding: 8rem 8rem;
+      }
+    }
+  }
+
+  .latestBlog {
+    font-size: $default-font-size;
+    line-height: 1.5;
+
+    &__DateBox {
+      width: 9rem;
+      aspect-ratio: 1/1;
+      border-radius: 6px;
+      background-image: linear-gradient(
+        to bottom right,
+        $color-primary,
+        $color-quinary
+      );
+      color: $color-white;
+      text-transform: uppercase;
+      font-size: 1.75rem;
+      line-height: 1.25;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      & > :first-child {
+        font-size: 3rem;
+      }
+
+      & > :nth-child(2) {
+        font-weight: 800;
+        letter-spacing: 1.25px;
       }
     }
   }

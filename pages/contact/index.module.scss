@@ -2,10 +2,17 @@
 @import "../../styles/abstracts/mixins";
 
 .Contact {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgba($color-quinary-lighter, .3);
+  border-radius: .6rem;
+  padding: 3rem 2rem;
 }
 
 .Form {
   // background-color: orangered;
+  
 
   &__group:not(:last-child) {
     margin-bottom: 2rem;
@@ -18,9 +25,10 @@
     border-radius: 0.6rem;
     background-color: rgba($color-white, 0.5);
     border: 3px solid transparent;
-    width: 90%;
+    width: 100%;
     display: block;
     transition: all 0.3s;
+    // margin-right: 0 !important;
 
     @include respond(tab-port) {
       width: 100%;
@@ -59,6 +67,7 @@
     border-radius: 0.6rem;
     color: $color-white;
     transition: all 0.3s;
+    font-size: $default-font-size;
     border: none;
 
     &:hover {
@@ -66,9 +75,9 @@
       // color: $color-quaternary;
       cursor: pointer;
     }
-  
+
     &:active {
-      transform: translateY(.4rem);
+      transform: translateY(0.4rem);
     }
   }
 }
