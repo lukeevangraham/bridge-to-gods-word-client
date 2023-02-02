@@ -116,7 +116,7 @@ export default function Home({ globalData, homeData, latestBlog }) {
               </div>
               <div>
                 {latestBlog.blog_topics.data.map((topic) => (
-                  <div>{topic.attributes.Topic}</div>
+                  <div key={topic.id}>{topic.attributes.Topic}</div>
                 ))}
               </div>
               <h4>
