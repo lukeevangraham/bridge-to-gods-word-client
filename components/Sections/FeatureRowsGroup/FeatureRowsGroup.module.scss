@@ -4,6 +4,7 @@
   display: flex;
   margin: 8rem auto;
   width: 90%;
+  flex-direction: row-reverse;
 
   @include respond(tab-port) {
     flex-direction: column !important;
@@ -36,7 +37,7 @@
 
   &__ReverseRow {
     // background-color: orangered;
-    flex-direction: row-reverse;
+    flex-direction: row;
 
     .Image {
       // grid-column: 1 / 2;

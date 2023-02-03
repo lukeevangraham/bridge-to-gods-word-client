@@ -76,31 +76,77 @@
     font-size: $default-font-size;
     line-height: 1.5;
 
-    &__DateBox {
-      width: 9rem;
-      aspect-ratio: 1/1;
-      border-radius: 6px;
-      background-image: linear-gradient(
-        to bottom right,
-        $color-primary,
-        $color-quinary
-      );
-      color: $color-white;
-      text-transform: uppercase;
-      font-size: 1.75rem;
-      line-height: 1.25;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+    h2 {
+      margin-bottom: 1.8rem;
+    }
 
-      & > :first-child {
-        font-size: 3rem;
+    h3 {
+      margin-bottom: 1.3rem;
+      border-bottom: 1px solid $color-ternary;
+      width: fit-content;
+    }
+
+    &__container {
+      display: flex;
+
+      @include respond(tab-port) {
+        flex-direction: column;
       }
 
-      & > :nth-child(2) {
-        font-weight: 800;
-        letter-spacing: 1.25px;
+      &__text {
+        flex: 0 0 50%;
+        padding: 10rem;
+        position: relative;
+
+        &__excerpt {
+          margin-bottom: 1rem;
+        }
+
+        &__otherPosts {
+          margin-top: 1rem;
+        }
+
+        &__DateBox {
+          position: absolute;
+          right: 0;
+          z-index: 1;
+          top: 0;
+          width: 9rem;
+          aspect-ratio: 1/1;
+          border-radius: 6px 0 0 6px;
+          background-image: linear-gradient(
+            to bottom right,
+            $color-primary,
+            $color-quinary
+          );
+          color: $color-white;
+          text-transform: uppercase;
+          font-size: 1.75rem;
+          line-height: 1.33;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+
+          & > :first-child {
+            font-size: 3.5rem;
+          }
+
+          & > :nth-child(2) {
+            font-weight: 800;
+            letter-spacing: 1.25px;
+          }
+        }
+      }
+
+      &__image {
+        position: relative;
+        flex: 0 0 50%;
+        height: auto;
+
+        @include respond(tab-port) {
+          height: 4rem !important;
+        }
       }
     }
   }

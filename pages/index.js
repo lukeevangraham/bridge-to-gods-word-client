@@ -13,9 +13,7 @@ export async function getStaticProps() {
   const [globalData, homeData, latestBlog] = await Promise.all([
     fetchAPI("/global?populate=*,navbar.links,navbar.Button"),
     fetchAPI(`/home?populate=deep`),
-    fetchAPI(
-      `/blogs?sort=DatePosted:desc&pagination[pageSize]=1&populate[0]=blog_topics`
-    ),
+    fetchAPI(`/blogs?sort=DatePosted:desc&pagination[pageSize]=1&populate=*`),
   ]);
 
   return {
@@ -88,40 +86,59 @@ export default function Home({ globalData, homeData, latestBlog }) {
 
           <section className={classes.latestBlog}>
             <div className="row">
-              <h2>Latest Blog</h2>
-              <div className={classes.latestBlog__DateBox}>
-                <div>
-                  {new Date(
-                    latestBlog.DatePosted.replace(/-/g, "/")
-                  ).toLocaleDateString("en-US", { day: "numeric" })}
+              <div className={classes.latestBlog__container}>
+                <div className={classes.latestBlog__container__text}>
+                  <h2>Latest Blog</h2>
+                  <div className={classes.latestBlog__container__text__DateBox}>
+                    <div>
+                      {new Date(
+                        latestBlog.DatePosted.replace(/-/g, "/")
+                      ).toLocaleDateString("en-US", { day: "numeric" })}
+                    </div>
+                    <div>
+                      {new Date(
+                        latestBlog.DatePosted.replace(/-/g, "/")
+                      ).toLocaleDateString("en-US", { month: "short" })}
+                    </div>
+                  </div>
+                  <Link href={`/blog/${latestBlog.slug}`}>
+                    <a>
+                      <h3>{latestBlog.Title}</h3>
+                    </a>
+                  </Link>
+                  <div className={classes.latestBlog__container__text__excerpt}>
+                    {latestBlog.Body.replace(/<br>/g, " ")
+                      .replace(/<[^>]+>/g, "")
+                      .split(" ")
+                      .splice(0, 32)
+                      .join(" ")}
+                    ...
+                  </div>
+                  <div>
+                    {latestBlog.blog_topics.data.map((topic) => (
+                      <div key={topic.id}>{topic.attributes.Topic}</div>
+                    ))}
+                  </div>
+                  <div className={classes.latestBlog__container__text__otherPosts}>
+                    <h4>
+                      <Link href="/blog">
+                        <a>See other blog posts →</a>
+                      </Link>
+                    </h4>
+                  </div>
                 </div>
-                <div>
-                  {new Date(
-                    latestBlog.DatePosted.replace(/-/g, "/")
-                  ).toLocaleDateString("en-US", { month: "short" })}
+                <div className={classes.latestBlog__container__image}>
+                  <Link href={`/blog/${latestBlog.slug}`}>
+                    <a>
+                      <Image
+                        src={latestBlog.primaryImage.data.attributes.url}
+                        layout="fill"
+                        objectFit="cover"
+                      />
+                    </a>
+                  </Link>
                 </div>
               </div>
-              <Link href={`/blog/${latestBlog.slug}`}>
-                <a>
-                  <h3>{latestBlog.Title}</h3>
-                </a>
-              </Link>
-              <div>
-                {latestBlog.Body.replace(/<br>/g, " ")
-                  .replace(/<[^>]+>/g, "")
-                  .split(" ")
-                  .splice(0, 32)
-                  .join(" ")}
-                ...
-              </div>
-              <div>
-                {latestBlog.blog_topics.data.map((topic) => (
-                  <div key={topic.id}>{topic.attributes.Topic}</div>
-                ))}
-              </div>
-              <h4>
-                <Link href="/blog">See other blog posts</Link>
-              </h4>
             </div>
           </section>
 

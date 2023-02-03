@@ -1,8 +1,17 @@
 @import "../../../styles/abstracts/variables.scss";
 
 .toolbar {
+  a {
+    border-bottom: none;
+    color: inherit;
+  }
+
   // background-color:  $color-quintary;
-  background-image: linear-gradient(to bottom right, $color-primary, $color-quinary);
+  background-image: linear-gradient(
+    to bottom right,
+    $color-primary,
+    $color-quinary
+  );
   font-size: 2.5rem;
   // font-weight: 900;
   color: $color-white;

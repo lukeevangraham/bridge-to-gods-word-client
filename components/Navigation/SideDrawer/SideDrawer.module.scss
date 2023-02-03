@@ -1,6 +1,12 @@
 @import "../../../styles/abstracts/variables.scss";
 
 .SideDrawer {
+
+  a {
+    color: inherit;
+    border-bottom: none;
+  }
+
   background-color: $color-quinary;
   position: fixed;
   right: 0;
