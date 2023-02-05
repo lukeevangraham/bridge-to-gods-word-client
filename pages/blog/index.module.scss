@@ -1,7 +1,8 @@
 @import "../../styles/abstracts/variables.scss";
 
 .BlogCards {
-  padding: 5rem 0;
+padding-top: 5rem;
+padding-bottom: 5rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(39rem, 1fr));
   grid-gap: 1.5rem;

@@ -1,32 +1,55 @@
+@import "../../styles/abstracts/mixins";
+
 .BlogSingle {
   // background-color: orangered;
   font-size: 1.8rem;
-  padding: 5rem 0;
-  max-width: 50rem;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+  // max-width: 50rem;
 
-  &__Title {
-  }
+  &__PrimaryImage {
+    position: relative;
+    height: 50rem;
+    width: 85vw;
+    margin: auto;
+    margin-bottom: 5rem;
 
-  &__DatePosted {
-  }
-
-  &__Body {
-    img {
-      max-width: 50rem;
+    @include respond(tab-port) {
+      width: 100%;
     }
-    // * {
-    //   max-width: 50rem;
-    // }
+  }
 
-    //  p:not(:has(> img)) {
-    //   // background-color: orangered;
-    //   max-width: 10rem;
-    //  }
-    // p {
-    //   max-width: 50rem;
-    // }
-    // p > img {
-    //   max-width: unset;
-    // }
+  &__BelowPrimaryImage {
+    max-width: 50rem;
+    margin: auto;
+
+    &__TopInfo {
+      display: flex;
+      gap: 1rem;
+
+      &__Title {
+      }
+    }
+
+    &__Body {
+      margin-top: 3rem;
+      img {
+        max-width: 50rem;
+      }
+      // * {
+      //   max-width: 50rem;
+      // }
+
+      //  p:not(:has(> img)) {
+      //   // background-color: orangered;
+      //   max-width: 10rem;
+      //  }
+      // p {
+      //   max-width: 50rem;
+      // }
+      // p > img {
+      //   max-width: unset;
+      // }
+    }
   }
 }

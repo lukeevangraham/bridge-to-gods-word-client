@@ -3,6 +3,7 @@ import qs from "qs";
 import Image from "next/image";
 import Link from "next/link";
 import Layout from "../hoc/Layout/Layout";
+import DateBox from "../components/UI/DateBox/DateBox";
 import Sections from "../components/Sections/Sections";
 import { fetchAPI } from "../lib/api";
 
@@ -89,18 +90,7 @@ export default function Home({ globalData, homeData, latestBlog }) {
               <div className={classes.latestBlog__container}>
                 <div className={classes.latestBlog__container__text}>
                   <h2>Latest Blog</h2>
-                  <div className={classes.latestBlog__container__text__DateBox}>
-                    <div>
-                      {new Date(
-                        latestBlog.DatePosted.replace(/-/g, "/")
-                      ).toLocaleDateString("en-US", { day: "numeric" })}
-                    </div>
-                    <div>
-                      {new Date(
-                        latestBlog.DatePosted.replace(/-/g, "/")
-                      ).toLocaleDateString("en-US", { month: "short" })}
-                    </div>
-                  </div>
+                  <DateBox date={latestBlog.DatePosted} />
                   <Link href={`/blog/${latestBlog.slug}`}>
                     <a>
                       <h3>{latestBlog.Title}</h3>
@@ -114,12 +104,14 @@ export default function Home({ globalData, homeData, latestBlog }) {
                       .join(" ")}
                     ...
                   </div>
-                  <div>
+                  <div className={classes.latestBlog__container__text__topics}>
                     {latestBlog.blog_topics.data.map((topic) => (
                       <div key={topic.id}>{topic.attributes.Topic}</div>
                     ))}
                   </div>
-                  <div className={classes.latestBlog__container__text__otherPosts}>
+                  <div
+                    className={classes.latestBlog__container__text__otherPosts}
+                  >
                     <h4>
                       <Link href="/blog">
                         <a>See other blog posts →</a>

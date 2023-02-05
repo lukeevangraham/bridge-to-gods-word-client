@@ -81,7 +81,7 @@
     }
 
     h3 {
-      margin-bottom: 1.3rem;
+      margin: 1.3rem 0;
       border-bottom: 1px solid $color-ternary;
       width: fit-content;
     }
@@ -106,35 +106,16 @@
           margin-top: 1rem;
         }
 
-        &__DateBox {
-          position: absolute;
-          right: 0;
-          z-index: 1;
-          top: 0;
-          width: 9rem;
-          aspect-ratio: 1/1;
-          border-radius: 6px 0 0 6px;
-          background-image: linear-gradient(
-            to bottom right,
-            $color-primary,
-            $color-quinary
-          );
-          color: $color-white;
-          text-transform: uppercase;
-          font-size: 1.75rem;
-          line-height: 1.33;
+        &__topics {
           display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
+          font-size: 1.3rem;
+          margin-bottom: 2.5rem;
 
-          & > :first-child {
-            font-size: 3.5rem;
-          }
-
-          & > :nth-child(2) {
-            font-weight: 800;
-            letter-spacing: 1.25px;
+          & > * {
+            background-color: rgba($color-grey-dark, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: 700;
           }
         }
       }
