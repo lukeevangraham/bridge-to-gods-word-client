@@ -11,6 +11,13 @@
   padding-top: 7rem;
   padding-bottom: 7rem;
 
+  &__Brand {
+    a {
+      border-bottom: none;
+      color: inherit;
+    }
+  }
+
   & > *:first-child {
     display: flex;
     justify-content: space-between;
