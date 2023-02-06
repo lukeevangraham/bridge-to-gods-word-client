@@ -5,14 +5,14 @@ import Link from "next/link";
 import Layout from "../hoc/Layout/Layout";
 import DateBox from "../components/UI/DateBox/DateBox";
 import Sections from "../components/Sections/Sections";
-import { fetchAPI } from "../lib/api";
+import { fetchAPI, getGlobalInfo } from "../lib/api";
 
 // import styles from "../styles/Home.module.css";
 import classes from "./index.module.scss";
 
 export async function getStaticProps() {
   const [globalData, homeData, latestBlog] = await Promise.all([
-    fetchAPI("/global?populate=*,navbar.links,navbar.Button"),
+    getGlobalInfo(),
     fetchAPI(`/home?populate=deep`),
     fetchAPI(`/blogs?sort=DatePosted:desc&pagination[pageSize]=1&populate=*`),
   ]);

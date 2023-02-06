@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { fetchAPI } from "../../lib/api";
+import { fetchAPI, getGlobalInfo } from "../../lib/api";
 import Layout from "../../hoc/Layout/Layout";
 import Breadcrumb from "../../components/UI/Breadcrumb/Breadcrumb";
 
@@ -7,7 +7,7 @@ import classes from "./index.module.scss";
 
 export async function getStaticProps() {
   const [globalData, allNewsData] = await Promise.all([
-    fetchAPI("/global?populate=*,navbar.links,navbar.Button"),
+    getGlobalInfo(),
     fetchAPI(`/blogs?sort=DatePosted:desc&populate=deep`),
   ]);
   return {
@@ -31,7 +31,6 @@ const Blog = ({ allNewsData, global }) => {
   return (
     <Layout global={global}>
       <Breadcrumb title="Blog" bgImage="https://res.cloudinary.com/bridge-to-god-s-word/image/upload/v1675636015/aaron_burden_x_G8_IQ_Mq_MITM_unsplash_3d9571db8a.jpg?updated_at=2023-02-05T22:26:59.780Z" />
-      {console.log(" ", allNewsData)}
       <div className={`row ${classes.BlogCards}`}>
         {allNewsData.data.map((blog) => (
           <div key={blog.id} className={classes.BlogCards__BlogCard}>

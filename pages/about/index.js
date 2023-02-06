@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Layout from "../../hoc/Layout/Layout";
 import Breadcrumb from "../../components/UI/Breadcrumb/Breadcrumb";
-import { fetchAPI } from "../../lib/api";
+import { fetchAPI, getGlobalInfo } from "../../lib/api";
 
 import classes from "./index.module.scss";
 
@@ -13,9 +13,10 @@ export async function getStaticProps() {
   });
 
   const [globalData, aboutData] = await Promise.all([
-    fetchAPI("/global?populate=*,navbar.links,navbar.Button"),
+    getGlobalInfo(),
     fetchAPI(`/about?${query}`),
   ]);
+
   return {
     props: {
       global: globalData.data.attributes,
@@ -48,11 +49,12 @@ const About = ({ global, aboutData }) => (
                 objectFit="cover"
               />
             </div>
-            <div className={classes.About__Bio__Image__Caption}>{aboutData.BioPhoto.data.attributes.caption}</div>
+            <div className={classes.About__Bio__Image__Caption}>
+              {aboutData.BioPhoto.data.attributes.caption}
+            </div>
           </div>
         </section>
       </main>
-      {console.log("ABOUT: ", aboutData)}
     </>
   </Layout>
 );

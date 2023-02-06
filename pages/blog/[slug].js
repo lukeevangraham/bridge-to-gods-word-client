@@ -1,4 +1,4 @@
-import { fetchAPI, getAllBlogSlugs } from "../../lib/api";
+import { fetchAPI, getGlobalInfo, getAllBlogSlugs } from "../../lib/api";
 import Image from "next/image";
 import Layout from "../../hoc/Layout/Layout";
 import Breadcrumb from "../../components/UI/Breadcrumb/Breadcrumb";
@@ -18,7 +18,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const [blogData, global] = await Promise.all([
     fetchAPI(`/blogs?filters[slug][$eq]=${params.slug}&populate=*`),
-    fetchAPI("/global?populate=*,navbar.links,navbar.Button"),
+    getGlobalInfo()
   ]);
   return {
     props: { blogData: blogData.data[0], global: global.data.attributes },

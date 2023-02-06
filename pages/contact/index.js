@@ -1,25 +1,15 @@
 import { useState } from "react";
 import Layout from "../../hoc/Layout/Layout";
 import Breadcrumb from "../../components/UI/Breadcrumb/Breadcrumb";
-import { fetchAPI } from "../../lib/api";
+import { fetchAPI, getGlobalInfo } from "../../lib/api";
 import Button from "../../components/UI/Button/Button";
 
 import classes from "./index.module.scss";
 
 export async function getStaticProps() {
   const [globalData, contactData] = await Promise.all([
-    fetchAPI("/global?populate=*,navbar.links,navbar.Button", {
-      headers: {
-        Accept: "application/json, text/plain, */*",
-        "User-Agent": "*",
-      },
-    }),
-    fetchAPI(`/contact?populate=deep`, {
-      headers: {
-        Accept: "application/json, text/plain, */*",
-        "User-Agent": "*",
-      },
-    }),
+    getGlobalInfo(),
+    fetchAPI(`/contact?populate=deep`),
   ]);
   return {
     props: {

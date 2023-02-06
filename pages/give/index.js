@@ -1,10 +1,10 @@
 import Layout from "../../hoc/Layout/Layout";
 import Breadcrumb from "../../components/UI/Breadcrumb/Breadcrumb";
-import { fetchAPI } from "../../lib/api"
+import { fetchAPI, getGlobalInfo } from "../../lib/api"
 
 export async function getStaticProps() {
   const [globalData, giveData] = await Promise.all([
-    fetchAPI("/global?populate=*,navbar.links,navbar.Button"),
+    getGlobalInfo(),
     fetchAPI(`/give?populate=deep`),
   ]);
   return {
