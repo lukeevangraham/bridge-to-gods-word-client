@@ -36,13 +36,15 @@ const Blog = ({ blogData, global }) => (
         bgImage="https://res.cloudinary.com/bridge-to-god-s-word/image/upload/v1675636015/aaron_burden_x_G8_IQ_Mq_MITM_unsplash_3d9571db8a.jpg?updated_at=2023-02-05T22:26:59.780Z"
       />
       <div className={`row ${classes.BlogSingle}`}>
-        <div className={classes.BlogSingle__PrimaryImage}>
-          <Image
-            src={blogData.attributes.primaryImage.data.attributes.url}
-            layout="fill"
-            objectFit="contain"
-          />
-        </div>
+        {blogData.attributes.primaryImage.data ? (
+          <div className={classes.BlogSingle__PrimaryImage}>
+            <Image
+              src={blogData.attributes.primaryImage.data.attributes.url}
+              layout="fill"
+              objectFit="contain"
+            />
+          </div>
+        ) : null}
         <div className={classes.BlogSingle__BelowPrimaryImage}>
           {console.log("HERE: ", blogData)}
           <div className={classes.BlogSingle__BelowPrimaryImage__TopInfo}>
