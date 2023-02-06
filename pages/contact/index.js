@@ -8,8 +8,18 @@ import classes from "./index.module.scss";
 
 export async function getStaticProps() {
   const [globalData, contactData] = await Promise.all([
-    fetchAPI("/global?populate=*,navbar.links,navbar.Button"),
-    fetchAPI(`/contact?populate=deep`),
+    fetchAPI("/global?populate=*,navbar.links,navbar.Button", {
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "User-Agent": "*",
+      },
+    }),
+    fetchAPI(`/contact?populate=deep`, {
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "User-Agent": "*",
+      },
+    }),
   ]);
   return {
     props: {
