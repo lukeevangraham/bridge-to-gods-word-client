@@ -16,7 +16,6 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  console.log("PARAMS: ", params);
   const [blogData, global] = await Promise.all([
     fetchAPI(`/blogs?filters[slug][$eq]=${params.slug}&populate=*`),
     fetchAPI("/global?populate=*,navbar.links,navbar.Button"),
@@ -46,7 +45,6 @@ const Blog = ({ blogData, global }) => (
           </div>
         ) : null}
         <div className={classes.BlogSingle__BelowPrimaryImage}>
-          {console.log("HERE: ", blogData)}
           <div className={classes.BlogSingle__BelowPrimaryImage__TopInfo}>
             <DateBox date={blogData.attributes.DatePosted} />
             <h1
