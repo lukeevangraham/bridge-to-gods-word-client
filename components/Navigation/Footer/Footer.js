@@ -12,6 +12,9 @@ const Footer = () => (
       </div>
       <div className={classes.Footer__Site}>
         <h4>Useful Links</h4>
+        <ul>
+          <li><Link href="/blog"><a>Blog</a></Link></li>
+        </ul>
       </div>
     </div>
     <div className={[classes.Footer__Bottom, "row"].join(" ")}>

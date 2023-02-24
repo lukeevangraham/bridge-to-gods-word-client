@@ -24,6 +24,17 @@
     // padding: 0;
   }
 
+  &__Site {
+    ul {
+      list-style: none;
+      font-size: $default-font-size;
+      a {
+        color: $color-white;
+        border-bottom: none;
+      }
+    }
+  }
+
   &__Bottom {
     margin-top: 4rem;
     // padding-top: 1rem;

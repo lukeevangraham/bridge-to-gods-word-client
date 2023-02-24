@@ -9,6 +9,8 @@ import classes from "./slug.module.scss";
 export async function getStaticPaths() {
   const paths = await getAllBlogSlugs();
 
+  console.log("Paths: ", paths)
+
   return {
     paths,
     fallback: false,

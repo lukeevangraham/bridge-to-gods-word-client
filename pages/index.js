@@ -30,7 +30,6 @@ export async function getStaticProps() {
 export default function Home({ globalData, homeData, latestBlog }) {
   return (
     <Layout global={globalData}>
-      {console.log("Latest Blog: ", latestBlog)}
       <div>
         <Head>
           <title>Carla Unseth - A Bridge To God&apos;s Word</title>
