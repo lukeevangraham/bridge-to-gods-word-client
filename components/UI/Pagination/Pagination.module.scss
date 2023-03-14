@@ -1,0 +1,31 @@
+@import "../../../styles/abstracts/variables.scss";
+
+.Pagination {
+  font-size: $default-font-size;
+  padding-bottom: 5rem;
+
+  ul {
+    display: flex;
+    gap: 1rem;
+
+    li {
+      display: inline-block;
+      cursor: pointer;
+      padding: 0 0.5rem;
+
+      a {
+        border-bottom: none;
+      }
+    }
+  }
+
+  &__active {
+    background-color: $color-secondary;
+    cursor: auto !important;
+  }
+
+  &__disable {
+    opacity: 0.3;
+    cursor: default !important;
+  }
+}

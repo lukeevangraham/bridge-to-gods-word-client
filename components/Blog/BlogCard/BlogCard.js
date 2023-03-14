@@ -13,7 +13,7 @@ const BlogCard = ({ blog }) => {
 
   return (
     <div key={blog.id} className={classes.BlogCard}>
-      <Link href={`/blog/${blog.attributes.slug}`}>
+      <Link href={`/blog/${blog.attributes.slug}`} passHref>
         <div className={classes.BlogCard__PrimaryImage}>
           {blog.attributes.primaryImage && blog.attributes.primaryImage.data ? (
             <Image

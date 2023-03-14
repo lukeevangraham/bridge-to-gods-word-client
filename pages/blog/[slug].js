@@ -9,8 +9,6 @@ import classes from "./slug.module.scss";
 export async function getStaticPaths() {
   const paths = await getAllBlogSlugs();
 
-  console.log("Paths: ", paths)
-
   return {
     paths,
     fallback: false,
@@ -20,7 +18,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const [blogData, global] = await Promise.all([
     fetchAPI(`/blogs?filters[slug][$eq]=${params.slug}&populate=*`),
-    getGlobalInfo()
+    getGlobalInfo(),
   ]);
   return {
     props: { blogData: blogData.data[0], global: global.data.attributes },
@@ -37,7 +35,8 @@ const Blog = ({ blogData, global }) => (
         bgImage="https://res.cloudinary.com/bridge-to-god-s-word/image/upload/v1675636015/aaron_burden_x_G8_IQ_Mq_MITM_unsplash_3d9571db8a.jpg?updated_at=2023-02-05T22:26:59.780Z"
       />
       <div className={`row ${classes.BlogSingle}`}>
-        {blogData.attributes.primaryImage && blogData.attributes.primaryImage.data ? (
+        {blogData.attributes.primaryImage &&
+        blogData.attributes.primaryImage.data ? (
           <div className={classes.BlogSingle__PrimaryImage}>
             <Image
               src={blogData.attributes.primaryImage.data.attributes.url}

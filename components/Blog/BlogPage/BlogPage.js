@@ -1,4 +1,6 @@
+import Link from "next/link";
 import BlogCard from "../BlogCard/BlogCard";
+import Pagination from "../../UI/Pagination/Pagination";
 
 import classes from "./BlogPage.module.scss";
 
@@ -10,22 +12,8 @@ const BlogPage = ({ newsData }) => (
       ))}
     </div>
     <div className="row">
-      <div className={classes.Pagination}>
-        <ul>
-          {newsData.meta.pagination.page > 1 ? (
-            <li>{newsData.meta.pagination.page - 1}</li>
-          ) : null}
-          <li className={classes.Pagination__active}>
-            {newsData.meta.pagination.page}
-          </li>
-          {newsData.meta.pagination.page <
-          newsData.meta.pagination.pageCount ? (
-            <li>{newsData.meta.pagination.page + 1}</li>
-          ) : null}
-          <div>...</div>
-          <li>{newsData.meta.pagination.pageCount}</li>
-        </ul>
-      </div>
+      <Pagination pageData={newsData.meta.pagination} />
+      
     </div>
   </>
 );

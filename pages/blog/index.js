@@ -25,7 +25,6 @@ export async function getStaticProps() {
 const Blog = ({ allNewsData, global }) => {
   return (
     <Layout global={global}>
-      {console.log("ND: ", allNewsData)}
       <Breadcrumb
         title="Blog"
         bgImage="https://res.cloudinary.com/bridge-to-god-s-word/image/upload/v1675636015/aaron_burden_x_G8_IQ_Mq_MITM_unsplash_3d9571db8a.jpg?updated_at=2023-02-05T22:26:59.780Z"

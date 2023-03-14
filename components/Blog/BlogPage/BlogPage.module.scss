@@ -8,21 +8,3 @@
   grid-gap: 2rem;
   font-size: 1.6rem;
 }
-
-.Pagination {
-  font-size: $default-font-size;
-  ul {
-    display: flex;
-    gap: 1rem;
-
-    li {
-      display: inline-block;
-      cursor: pointer;
-      padding: 0 0.5rem;
-    }
-  }
-  &__active {
-    background-color: $color-secondary;
-    cursor: auto !important;
-  }
-}
