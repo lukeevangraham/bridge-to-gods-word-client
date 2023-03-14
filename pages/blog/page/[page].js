@@ -1,4 +1,4 @@
-import { getAllBlogPages, fetchAPI, getGlobalInfo } from "../../../lib/api";
+import { getAllBlogPages, fetchAPI, getGlobalInfo, getBlogPageSnippets } from "../../../lib/api";
 import Layout from "../../../hoc/Layout/Layout";
 import Breadcrumb from "../../../components/UI/Breadcrumb/Breadcrumb";
 import { useRouter } from "next/router";
@@ -15,9 +15,10 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const [newsPageData, globalData] = await Promise.all([
-    fetchAPI(
-      `/blogs?sort=DatePosted:desc&populate=deep&pagination[page]=${params.page}`
-    ),
+    // fetchAPI(
+    //   `/blogs?sort=DatePosted:desc&populate=deep&pagination[page]=${params.page}`
+    // ),
+    getBlogPageSnippets(params.page),
     getGlobalInfo(),
   ]);
 
