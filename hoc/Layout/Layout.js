@@ -8,6 +8,7 @@ import classes from "./Layout.module.scss";
 
 const Layout = ({ global, children }) => {
   const [showSideDrawer, setShowSideDrawer] = useState(false);
+  const [showPlayer, setShowPlayer] = useState(false);
 
   const sideDrawerClosedHandler = () => {
     setShowSideDrawer(false);
@@ -21,7 +22,10 @@ const Layout = ({ global, children }) => {
     <>
       <Toolbar drawerToggleClicked={sideDrawerToggleHandler}>
         <div className={classes.Layout__DesktopOnly}>
-          <NavigationItems links={global.navbar.links} button={global.navbar.Button} />
+          <NavigationItems
+            links={global.navbar.links}
+            button={global.navbar.Button}
+          />
         </div>
       </Toolbar>
       <SideDrawer

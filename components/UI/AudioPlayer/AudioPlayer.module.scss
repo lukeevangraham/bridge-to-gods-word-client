@@ -1,0 +1,17 @@
+@import "../../../styles/abstracts/variables.scss";
+
+.AudioPlayer {
+  background-color: rgba($color-black, 0.85);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 2rem;
+
+  &__Title {
+    color: $color-white;
+    margin-bottom: 1.5rem;
+    margin-left: 0.33rem;
+    font-size: 1.7rem;
+    font-weight: 600;
+  }
+}

@@ -26,8 +26,8 @@
       &__Episode {
         display: flex;
         margin: 2rem auto;
-        padding: 2rem 2rem;
-        gap: 2rem;
+        padding: 4rem 2rem;
+        gap: 1.5rem;
 
         &__Image {
           position: relative;
@@ -36,29 +36,66 @@
           align-self: center;
         }
 
-        &__Title {
-          // background-color: orangered;
-          font-weight: 400;
-          font-size: 2.2rem;
-          text-transform: uppercase;
-          letter-spacing: 0.6px;
-        }
+        &__Info {
+          &__Top {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+            cursor: pointer;
 
-        &__Date {
-          font-weight: 800;
-          font-size: 1.5rem;
-          color: $color-quaternary;
-          margin: 0.75rem 0;
-        }
+            &:hover &__Title {
+              // color: $color-primary;
+              text-decoration: underline;
+            }
 
-        &__Player {
-          & > * {
-            justify-content: flex-start !important;
+            &:hover &__Play {
+              background-color: darken($color-primary, 20%);
+            }
+
+            &__Play {
+              background-color: $color-primary;
+              width: 5rem;
+              height: 5rem;
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              padding-left: 0.5rem;
+              // margin-right: 2rem;
+              transition: all .2s;
+
+              svg {
+                fill: lighten($color-quinary-lighter, 20%);
+                width: 3.5rem;
+                height: 3.5rem;
+              }
+            }
+            &__Title {
+              // background-color: orangered;
+              font-weight: 400;
+              font-size: 2.2rem;
+              text-transform: uppercase;
+              letter-spacing: 0.6px;
+              text-decoration: none;
+              transition: all 0.2s;
+            }
+
+            &__Date {
+              font-weight: 800;
+              font-size: 1.5rem;
+              color: $color-quaternary;
+              margin: 0.75rem 0;
+            }
+          }
+
+          &__Player {
+            & > * {
+              justify-content: flex-start !important;
+            }
           }
         }
       }
     }
   }
 }
-
-
