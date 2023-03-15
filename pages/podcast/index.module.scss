@@ -21,7 +21,7 @@
     &__Episodes {
 
       & > *:nth-child(even) {
-        background-color: $color-quinary-lighter;
+        background-color: lighten($color-quinary-lighter, 15%);
       }
 
       &__Episode {
