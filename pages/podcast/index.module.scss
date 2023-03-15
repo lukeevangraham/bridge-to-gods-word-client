@@ -2,8 +2,9 @@
 
 .Podcast {
   // background-color: orangered;
-  margin: 5rem auto;
+  padding: 5rem auto;
   font-size: $default-font-size;
+  line-height: 1.5;
 
   &__Top {
     display: flex;
@@ -17,15 +18,38 @@
   }
 
   &__Main {
-    &__Episode {
-      display: flex;
-      gap: 3rem;
+    &__Episodes {
 
-      &__Image {
-        position: relative;
-width: 100%;
+      & > *:nth-child(even) {
+        background-color: $color-quinary-lighter;
+      }
 
-        flex: 0 0 30rem;
+      &__Episode {
+        display: flex;
+        margin: 2rem auto;
+        padding: 2rem 2rem;
+        gap: 2rem;
+
+        &__Image {
+          position: relative;
+          height: 15rem;
+          flex: 0 0 17rem;
+          align-self: center;
+        }
+
+        &__Title {
+          // background-color: orangered;
+          font-weight: 400;
+          font-size: 2.2rem;
+          text-transform: uppercase;
+          letter-spacing: 0.6px;
+        }
+
+        &__Date {
+          font-weight: 800;
+          font-size: 1.5rem;
+          color: $color-quaternary;
+        }
       }
     }
   }

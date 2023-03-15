@@ -27,35 +27,51 @@ const Podcast = ({ global, podcastFeed }) => (
         "https://res.cloudinary.com/bridge-to-god-s-word/image/upload/v1678854939/cowomen_UU_Ppu2s_YV_6_E_unsplash_4f22083296.jpg"
       }
     />
-    <main className={[classes.Podcast, "row"].join(" ")}>
-      <section className={classes.Podcast__Top}>
-        <div className={classes.Podcast__Top__Image}>
-          <Image
-            src={podcastFeed.image.url}
-            layout="fill"
-            objectFit="contain"
-          />
-        </div>
-        <div>
-          <h2>{podcastFeed.title} Podcast</h2>
-          <p>{podcastFeed.description}</p>
-        </div>
-      </section>
-      <section className={classes.Podcast__Main}>
-        <div>Episodes</div>
-        {podcastFeed.items.map((episode, index) => (
-          <div key={index} className={classes.Podcast__Main__Episode}>
-            <div className={classes.Podcast__Main__Episode__Image}>
-              <Image src={episode.itunes.image} layout="fill" />
-            </div>
-            <div>
-              <div>{episode.pubDate}</div>
-              <div>{episode.title}</div>
-              <p>{episode.contentSnippet}</p>
-            </div>
+    <main className={classes.Podcast}>
+      <div className="row">
+        <section className={classes.Podcast__Top}>
+          <div className={classes.Podcast__Top__Image}>
+            <Image
+              src={podcastFeed.image.url}
+              layout="fill"
+              objectFit="contain"
+            />
           </div>
-        ))}
-      </section>
+          <div>
+            <h2>{podcastFeed.title} Podcast</h2>
+            <p>{podcastFeed.description}</p>
+          </div>
+        </section>
+        <section className={classes.Podcast__Main}>
+          <div>Episodes</div>
+          <div className={classes.Podcast__Main__Episodes}>
+            {podcastFeed.items.map((episode, index) => (
+              <div key={index} className={classes.Podcast__Main__Episodes__Episode}>
+                <div className={classes.Podcast__Main__Episodes__Episode__Image}>
+                  <Image
+                    src={episode.itunes.image}
+                    layout="fill"
+                    objectFit="contain"
+                  />
+                </div>
+                <div>
+                  <div className={classes.Podcast__Main__Episodes__Episode__Date}>
+                    {new Date(episode.pubDate).toLocaleDateString("en-US", {
+                      month: "long",
+                      day: "numeric",
+                      year: "numeric",
+                    })}
+                  </div>
+                  <div className={classes.Podcast__Main__Episodes__Episode__Title}>
+                    {episode.title}
+                  </div>
+                  <p>{episode.contentSnippet}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      </div>
     </main>
     {console.log("PF: ", podcastFeed)}
   </Layout>
