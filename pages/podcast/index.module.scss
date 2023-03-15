@@ -1,0 +1,32 @@
+@import "../../styles/abstracts/variables.scss";
+
+.Podcast {
+  // background-color: orangered;
+  margin: 5rem auto;
+  font-size: $default-font-size;
+
+  &__Top {
+    display: flex;
+
+    &__Image {
+      height: 30rem;
+      width: 100%;
+      position: relative;
+      flex: 0 0 50%;
+    }
+  }
+
+  &__Main {
+    &__Episode {
+      display: flex;
+      gap: 3rem;
+
+      &__Image {
+        position: relative;
+width: 100%;
+
+        flex: 0 0 30rem;
+      }
+    }
+  }
+}

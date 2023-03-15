@@ -14,6 +14,7 @@ const Footer = () => (
         <h4>Useful Links</h4>
         <ul>
           <li><Link href="/blog"><a>Blog</a></Link></li>
+          <li><Link href="/podcast"><a>Podcast</a></Link></li>
         </ul>
       </div>
     </div>
