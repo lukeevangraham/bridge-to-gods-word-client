@@ -2,6 +2,7 @@ import Image from "next/image";
 import Layout from "../../hoc/Layout/Layout";
 import Breadcrumb from "../../components/UI/Breadcrumb/Breadcrumb";
 import { fetchAPI, getGlobalInfo } from "../../lib/api";
+import ReactPlayer from "react-player";
 import Parser from "rss-parser";
 
 import classes from "./index.module.scss";
@@ -46,8 +47,13 @@ const Podcast = ({ global, podcastFeed }) => (
           <div>Episodes</div>
           <div className={classes.Podcast__Main__Episodes}>
             {podcastFeed.items.map((episode, index) => (
-              <div key={index} className={classes.Podcast__Main__Episodes__Episode}>
-                <div className={classes.Podcast__Main__Episodes__Episode__Image}>
+              <div
+                key={index}
+                className={classes.Podcast__Main__Episodes__Episode}
+              >
+                <div
+                  className={classes.Podcast__Main__Episodes__Episode__Image}
+                >
                   <Image
                     src={episode.itunes.image}
                     layout="fill"
@@ -55,17 +61,33 @@ const Podcast = ({ global, podcastFeed }) => (
                   />
                 </div>
                 <div>
-                  <div className={classes.Podcast__Main__Episodes__Episode__Date}>
+                  <div
+                    className={classes.Podcast__Main__Episodes__Episode__Date}
+                  >
                     {new Date(episode.pubDate).toLocaleDateString("en-US", {
                       month: "long",
                       day: "numeric",
                       year: "numeric",
                     })}
                   </div>
-                  <div className={classes.Podcast__Main__Episodes__Episode__Title}>
+                  <div
+                    className={classes.Podcast__Main__Episodes__Episode__Title}
+                  >
                     {episode.title}
                   </div>
                   <p>{episode.contentSnippet}</p>
+                  {episode.enclosure.url ? (
+                    <ReactPlayer
+                      url={episode.enclosure.url}
+                      width="400px"
+                      height="50px"
+                      playing={true}
+                      controls={true}
+                      light
+                      className={classes.reactplayer__preview}
+                      // className={classes.Podcast__Main__Episodes__Episode__Player}
+                    />
+                  ) : null}
                 </div>
               </div>
             ))}
@@ -73,7 +95,7 @@ const Podcast = ({ global, podcastFeed }) => (
         </section>
       </div>
     </main>
-    {console.log("PF: ", podcastFeed)}
+    {/* {console.log("PF: ", podcastFeed)} */}
   </Layout>
 );
 

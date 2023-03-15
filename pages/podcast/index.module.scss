@@ -19,7 +19,6 @@
 
   &__Main {
     &__Episodes {
-
       & > *:nth-child(even) {
         background-color: lighten($color-quinary-lighter, 15%);
       }
@@ -49,8 +48,19 @@
           font-weight: 800;
           font-size: 1.5rem;
           color: $color-quaternary;
+          margin: 0.75rem 0;
+        }
+
+        &__Player {
+          background-color: orangered;
         }
       }
     }
+  }
+}
+
+.reactplayer__preview {
+  & > * {
+    justify-content: flex-start !important;
   }
 }
