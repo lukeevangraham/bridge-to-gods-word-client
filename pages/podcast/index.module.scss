@@ -52,15 +52,13 @@
         }
 
         &__Player {
-          background-color: orangered;
+          & > * {
+            justify-content: flex-start !important;
+          }
         }
       }
     }
   }
 }
 
-.reactplayer__preview {
-  & > * {
-    justify-content: flex-start !important;
-  }
-}
+

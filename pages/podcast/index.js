@@ -84,8 +84,7 @@ const Podcast = ({ global, podcastFeed }) => (
                       playing={true}
                       controls={true}
                       light
-                      className={classes.reactplayer__preview}
-                      // className={classes.Podcast__Main__Episodes__Episode__Player}
+                      className={classes.Podcast__Main__Episodes__Episode__Player}
                     />
                   ) : null}
                 </div>
