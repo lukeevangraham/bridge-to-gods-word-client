@@ -7,11 +7,23 @@
   width: 100%;
   padding: 2rem;
 
-  &__Title {
+  &__Top {
+    display: flex;
     color: $color-white;
+    align-items: center;
+    justify-content: space-between;
     margin-bottom: 1.5rem;
-    margin-left: 0.33rem;
     font-size: 1.7rem;
-    font-weight: 600;
+
+    & > *:nth-child(2) {
+      // background-color: orangered;
+      padding: 0 2rem;
+      cursor: pointer;
+    }
+
+    &__Title {
+      margin-left: 0.33rem;
+      font-weight: 600;
+    }
   }
 }

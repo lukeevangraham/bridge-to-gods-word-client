@@ -2,11 +2,11 @@ import ReactPlayer from "react-player";
 
 import classes from "./AudioPlayer.module.scss";
 
-const AudioPlayer = ({ episode }) => (
+const AudioPlayer = ({ episode, clearSelection }) => (
   <div className={classes.AudioPlayer}>
-    <div className={classes.AudioPlayer__Title}>
-      {episode.title}
-      {console.log("E: ", episode)}
+    <div className={classes.AudioPlayer__Top}>
+      <div className={classes.AudioPlayer__Top__Title}>{episode.title}</div>
+      <div onClick={() => clearSelection()}>X</div>
     </div>
     <ReactPlayer
       url={episode.enclosure.url}

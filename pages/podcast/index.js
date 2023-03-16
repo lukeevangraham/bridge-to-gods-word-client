@@ -2,9 +2,8 @@ import { useState } from "react";
 import Image from "next/image";
 import Layout from "../../hoc/Layout/Layout";
 import Breadcrumb from "../../components/UI/Breadcrumb/Breadcrumb";
-import { fetchAPI, getGlobalInfo } from "../../lib/api";
+import { getGlobalInfo } from "../../lib/api";
 import AudioPlayer from "../../components/UI/AudioPlayer/AudioPlayer";
-import ReactPlayer from "react-player";
 import Parser from "rss-parser";
 
 import classes from "./index.module.scss";
@@ -53,12 +52,13 @@ const Podcast = ({ global, podcastFeed }) => {
             </div>
           </section>
           <section className={classes.Podcast__Main}>
-            <div>Episodes</div>
+            {/* <h3>Episodes</h3> */}
             <div className={classes.Podcast__Main__Episodes}>
               {podcastFeed.items.map((episode, index) => (
                 <div
                   key={index}
                   className={classes.Podcast__Main__Episodes__Episode}
+                  id={index}
                 >
                   <div
                     className={classes.Podcast__Main__Episodes__Episode__Image}
@@ -120,7 +120,12 @@ const Podcast = ({ global, podcastFeed }) => {
         </div>
       </main>
       {/* {console.log("PF: ", podcastFeed)} */}
-      {selectedAudio ? <AudioPlayer episode={selectedAudio} /> : null}
+      {selectedAudio ? (
+        <AudioPlayer
+          episode={selectedAudio}
+          clearSelection={setSelectedAudio}
+        />
+      ) : null}
     </Layout>
   );
 };

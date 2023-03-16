@@ -1,20 +1,22 @@
 import Head from "next/head";
-import qs from "qs";
 import Image from "next/image";
 import Link from "next/link";
 import Layout from "../hoc/Layout/Layout";
 import DateBox from "../components/UI/DateBox/DateBox";
 import Sections from "../components/Sections/Sections";
 import { fetchAPI, getGlobalInfo } from "../lib/api";
+import Parser from "rss-parser";
 
-// import styles from "../styles/Home.module.css";
 import classes from "./index.module.scss";
 
+const parser = new Parser();
+
 export async function getStaticProps() {
-  const [globalData, homeData, latestBlog] = await Promise.all([
+  const [globalData, homeData, latestBlog, podcastData] = await Promise.all([
     getGlobalInfo(),
     fetchAPI(`/home?populate=deep`),
     fetchAPI(`/blogs?sort=DatePosted:desc&pagination[pageSize]=1&populate=*`),
+    parser.parseURL("https://feed.podbean.com/bridgetogodsword/feed.xml"),
   ]);
 
   return {
@@ -22,12 +24,18 @@ export async function getStaticProps() {
       globalData: globalData.data.attributes,
       homeData,
       latestBlog: latestBlog.data[0].attributes,
+      podcastData: podcastData.items[0],
     },
     revalidate: 1,
   };
 }
 
-export default function Home({ globalData, homeData, latestBlog }) {
+export default function Home({
+  globalData,
+  homeData,
+  latestBlog,
+  podcastData,
+}) {
   return (
     <Layout global={globalData}>
       <div>
@@ -123,6 +131,49 @@ export default function Home({ globalData, homeData, latestBlog }) {
                     <a>
                       <Image
                         src={latestBlog.primaryImage.data.attributes.url}
+                        layout="fill"
+                        objectFit="cover"
+                      />
+                    </a>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section className={classes.Podcast}>
+            <div className="row">
+              <div className={classes.Podcast__container}>
+                <div className={classes.Podcast__container__text}>
+                  <h2>Latest Podcast</h2>
+                  <DateBox date={podcastData.pubDate} />
+                  <Link href={`/podcast#0`}>
+                    <a>
+                      <h3>{podcastData.title}</h3>
+                    </a>
+                  </Link>
+                  <div className={classes.latestBlog__container__text__excerpt}>
+                    {podcastData.contentSnippet
+                      .split(" ")
+                      .splice(0, 32)
+                      .join(" ")}
+                    ...
+                  </div>
+                  <div
+                    className={classes.latestBlog__container__text__otherPosts}
+                  >
+                    <h4>
+                      <Link href="/podcast">
+                        <a>See other podcasts →</a>
+                      </Link>
+                    </h4>
+                  </div>
+                </div>
+                <div className={classes.latestBlog__container__image}>
+                  <Link href={`/podcast#0`}>
+                    <a>
+                      <Image
+                        src={podcastData.itunes.image}
                         layout="fill"
                         objectFit="cover"
                       />
