@@ -1,18 +1,15 @@
-import classes from "./DateBox.module.scss"
+import { format } from "date-fns";
+import classes from "./DateBox.module.scss";
 
-const DateBox = ({ date }) => (
-  <div className={classes.DateBox}>
-    <div>
-      {new Date(date.replace(/-/g, "/")).toLocaleDateString("en-US", {
-        day: "numeric",
-      })}
+const DateBox = ({ date }) => {
+  const convertedDate = new Date(date.replace(/-/g, "/"));
+
+  return (
+    <div className={classes.DateBox}>
+      <div>{format(convertedDate, "dd")}</div>
+      <div>{format(convertedDate, "MMM")}</div>
     </div>
-    <div>
-      {new Date(date.replace(/-/g, "/")).toLocaleDateString("en-US", {
-        month: "short",
-      })}
-    </div>
-  </div>
-);
+  );
+};
 
 export default DateBox;
