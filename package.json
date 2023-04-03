@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@fontsource/open-sans": "^4.5.8",
-    "date-fns": "^2.29.3",
     "next": "12.1.4",
     "nodemailer": "^6.9.1",
     "qs": "^6.10.5",

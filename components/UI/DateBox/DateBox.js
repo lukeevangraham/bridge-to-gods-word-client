@@ -1,13 +1,29 @@
-import { format } from "date-fns";
 import classes from "./DateBox.module.scss";
 
-const DateBox = ({ date }) => {
-  const convertedDate = new Date(date.replace(/-/g, "/"));
+const DateBox = ({ date, podcastDate }) => {
+  let convertedDate;
+
+  switch (podcastDate) {
+    case true:
+      convertedDate = new Date(date);
+      break;
+    default:
+      convertedDate = new Date(date.replace(/-/g, "/"));
+      break;
+  }
 
   return (
     <div className={classes.DateBox}>
-      <div>{format(convertedDate, "dd")}</div>
-      <div>{format(convertedDate, "MMM")}</div>
+      <div>
+        {convertedDate.toLocaleDateString("en-US", {
+          day: "numeric",
+        })}
+      </div>
+      <div>
+        {convertedDate.toLocaleDateString("en-US", {
+          month: "short",
+        })}
+      </div>
     </div>
   );
 };

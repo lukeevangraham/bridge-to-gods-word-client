@@ -146,7 +146,7 @@ export default function Home({
               <div className={classes.Podcast__container}>
                 <div className={classes.Podcast__container__text}>
                   <h2>Latest Podcast</h2>
-                  <DateBox date={podcastData.pubDate} />
+                  <DateBox date={podcastData.pubDate} podcastDate={true} />
                   <Link href={`/podcast#0`}>
                     <a>
                       <h3>{podcastData.title}</h3>
