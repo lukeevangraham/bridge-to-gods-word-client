@@ -5,6 +5,7 @@ import Layout from "../hoc/Layout/Layout";
 import DateBox from "../components/UI/DateBox/DateBox";
 import Sections from "../components/Sections/Sections";
 import { fetchAPI, getGlobalInfo } from "../lib/api";
+import { getMostRecentIssue } from "../lib/newsletter";
 import Parser from "rss-parser";
 
 import classes from "./index.module.scss";
@@ -12,12 +13,16 @@ import classes from "./index.module.scss";
 const parser = new Parser();
 
 export async function getStaticProps() {
-  const [globalData, homeData, latestBlog, podcastData] = await Promise.all([
-    getGlobalInfo(),
-    fetchAPI(`/home?populate=deep`),
-    fetchAPI(`/blogs?sort=DatePosted:desc&pagination[pageSize]=1&populate=*`),
-    parser.parseURL("https://feed.podbean.com/bridgetogodsword/feed.xml"),
-  ]);
+  const [globalData, homeData, latestBlog, podcastData, newsletters] =
+    await Promise.all([
+      getGlobalInfo(),
+      fetchAPI(`/home?populate=deep`),
+      fetchAPI(`/blogs?sort=DatePosted:desc&pagination[pageSize]=1&populate=*`),
+      parser.parseURL("https://feed.podbean.com/bridgetogodsword/feed.xml"),
+      getMostRecentIssue(),
+    ]);
+
+  console.log(`N ${newsletters}`);
 
   return {
     props: {
@@ -25,6 +30,7 @@ export async function getStaticProps() {
       homeData,
       latestBlog: latestBlog.data[0].attributes,
       podcastData: podcastData.items[0],
+      newsletters: newsletters,
     },
     revalidate: 1,
   };
@@ -35,6 +41,7 @@ export default function Home({
   homeData,
   latestBlog,
   podcastData,
+  newsletters,
 }) {
   return (
     <Layout global={globalData}>
