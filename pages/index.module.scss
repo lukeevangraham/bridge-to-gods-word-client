@@ -167,4 +167,40 @@
       }
     }
   }
+
+  .Newsletter {
+    font-size: $default-font-size;
+    line-height: 1.5;
+    margin: 8rem auto;
+
+    h2 {
+      margin-bottom: 1.8rem;
+    }
+
+    h3 {
+      margin: 1.3rem 0;
+      border-bottom: none;
+      width: fit-content;
+    }
+    // background-color: orangered;
+
+    &__container {
+      display: flex;
+      flex-direction: row-reverse;
+
+      @include respond(tab-port) {
+        flex-direction: column;
+      }
+
+      &__text {
+        flex: 0 0 50%;
+        padding: 10rem;
+        position: relative;
+
+        &__excerpt {
+          margin-bottom: 1rem;
+        }
+      }
+    }
+  }
 }
