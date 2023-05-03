@@ -33,7 +33,9 @@ const Footer = () => (
           &copy; {new Date().getFullYear()} Carla Unseth
         </div>
         <div className={classes.Footer__Bottom__Content__GWW}>
-          <a href="https://grahamwebworks.com" target="_blank">Graham Web Works</a>
+          <a href="https://grahamwebworks.com" target="_blank">
+            Graham Web Works
+          </a>
         </div>
         <div className={classes.Footer__Bottom__Content__Social}>
           <a href="https://twitter.com/bridge2godsword" target="_blank">

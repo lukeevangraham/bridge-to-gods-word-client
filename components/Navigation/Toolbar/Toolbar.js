@@ -8,7 +8,7 @@ const Toolbar = ({ children, drawerToggleClicked }) => (
     <div className={`${classes.toolbar__inner} row`}>
       <Link href="/">
         <a>
-          <div>Carla Unseth</div>
+          <div className={classes.toolbar__inner__brand}>Carla Unseth</div>
         </a>
       </Link>
       {children}
