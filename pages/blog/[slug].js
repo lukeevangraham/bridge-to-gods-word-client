@@ -42,6 +42,7 @@ const Blog = ({ blogData, global }) => (
               src={blogData.attributes.primaryImage.data.attributes.url}
               layout="fill"
               objectFit="contain"
+              alt={blogData.attributes.primaryImage.data.attributes.alternativeText}
             />
           </div>
         ) : null}

@@ -20,6 +20,7 @@ const BlogCard = ({ blog }) => {
               src={blog.attributes.primaryImage.data.attributes.url}
               layout="fill"
               objectFit="cover"
+              alt={blog.attributes.primaryImage.data.attributes.alternativeText}
             />
           ) : (
             <Image
@@ -28,6 +29,7 @@ const BlogCard = ({ blog }) => {
               }
               layout="fill"
               objectFit="cover"
+              alt="Someone writing on paper with pen"
             />
           )}
         </div>

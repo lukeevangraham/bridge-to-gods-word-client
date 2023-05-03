@@ -59,6 +59,10 @@ export default function Home({
                 layout="fill"
                 objectFit="cover"
                 priority
+                alt={
+                  homeData.data.attributes.testCover.data.attributes
+                    .alternativeText
+                }
               />
             </div>
             <h1>{homeData.data.attributes.testText}</h1>
@@ -85,6 +89,10 @@ export default function Home({
                     }
                     layout="fill"
                     objectFit="cover"
+                    alt={
+                      homeData.data.attributes.aboutPhoto.data.attributes
+                        .alternativeText
+                    }
                   />
                 </div>
                 <div
@@ -138,6 +146,10 @@ export default function Home({
                         src={latestBlog.primaryImage.data.attributes.url}
                         layout="fill"
                         objectFit="cover"
+                        alt={
+                          latestBlog.primaryImage.data.attributes
+                            .alternativeText
+                        }
                       />
                     </a>
                   </Link>
@@ -181,6 +193,7 @@ export default function Home({
                         src={podcastData.itunes.image}
                         layout="fill"
                         objectFit="cover"
+                        alt="Podcast Image"
                       />
                     </a>
                   </Link>
@@ -221,6 +234,7 @@ export default function Home({
                         src={newsletter.topImage}
                         layout="fill"
                         objectFit="cover"
+                        alt="Newsletter image"
                       />
                     </a>
                   </Link>

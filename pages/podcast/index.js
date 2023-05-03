@@ -44,6 +44,7 @@ const Podcast = ({ global, podcastFeed }) => {
                 src={podcastFeed.image.url}
                 layout="fill"
                 objectFit="contain"
+                alt={podcastFeed.image.alternativeText}
               />
             </div>
             <div>
@@ -67,6 +68,7 @@ const Podcast = ({ global, podcastFeed }) => {
                       src={episode.itunes.image}
                       layout="fill"
                       objectFit="contain"
+                      alt="Podcast image"
                     />
                   </div>
                   <div
