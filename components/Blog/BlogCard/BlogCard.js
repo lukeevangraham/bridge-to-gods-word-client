@@ -43,7 +43,7 @@ const BlogCard = ({ blog }) => {
 
         <div className={classes.BlogCard__BelowPhoto__Date}>
           <svg>
-            <use xlinkHref="../images/sprite.svg#icon-calendar" />
+            <use xlinkHref="../../images/sprite.svg#icon-calendar" />
           </svg>
           <div>
             {new Date(blog.attributes.DatePosted).toLocaleDateString("en-US", {
