@@ -17,7 +17,7 @@
       border-bottom: none;
       color: inherit;
       text-transform: uppercase;
-      letter-spacing: .2rem;
+      letter-spacing: 0.2rem;
     }
   }
 
@@ -40,6 +40,11 @@
       a {
         color: $color-white;
         border-bottom: none;
+        transition: color 0.2s;
+
+        &:hover {
+          color: $color-quaternary;
+        }
       }
     }
   }

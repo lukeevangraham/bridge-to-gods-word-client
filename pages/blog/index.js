@@ -1,9 +1,6 @@
-import { useRouter } from "next/router";
-import Link from "next/link";
-import { fetchAPI, getGlobalInfo, getBlogPageSnippets } from "../../lib/api";
+import { getGlobalInfo, getBlogPageSnippets } from "../../lib/api";
 import Layout from "../../hoc/Layout/Layout";
 import Breadcrumb from "../../components/UI/Breadcrumb/Breadcrumb";
-import BlogCard from "../../components/Blog/BlogCard/BlogCard";
 import BlogPage from "../../components/Blog/BlogPage/BlogPage";
 
 import classes from "./index.module.scss";

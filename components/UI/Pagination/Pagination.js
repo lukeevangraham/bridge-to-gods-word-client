@@ -39,7 +39,7 @@ const Pagination = ({ pageData }) => (
 
           {/* <div>...</div> */}
           <Link href={`/blog/page/${pageData.pageCount}`} passHref>
-            <li>{pageData.pageCount}</li>
+            <li><a>{pageData.pageCount}</a></li>
           </Link>
           <Link href={`/blog/page/${pageData.page + 1}`} passHref>
             <li>&gt;</li>

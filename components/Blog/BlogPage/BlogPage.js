@@ -1,4 +1,3 @@
-import Link from "next/link";
 import BlogCard from "../BlogCard/BlogCard";
 import Pagination from "../../UI/Pagination/Pagination";
 

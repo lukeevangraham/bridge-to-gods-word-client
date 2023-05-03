@@ -15,13 +15,24 @@
 
       a {
         border-bottom: none;
+        color: $color-black;
+      }
+
+      &:hover {
+        background-color: $color-grey-light-1;
+        border-radius: 2px;
       }
     }
   }
 
   &__active {
     background-color: $color-secondary;
+    border-radius: 2px;
     cursor: auto !important;
+
+    &:hover {
+      background-color: $color-secondary !important;
+    }
   }
 
   &__disable {
