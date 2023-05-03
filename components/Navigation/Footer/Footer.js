@@ -33,17 +33,25 @@ const Footer = () => (
           &copy; {new Date().getFullYear()} Carla Unseth
         </div>
         <div className={classes.Footer__Bottom__Content__GWW}>
-          <a href="https://grahamwebworks.com" target="_blank">
+          <a href="https://grahamwebworks.com" target="_blank" rel="noreferrer">
             Graham Web Works
           </a>
         </div>
         <div className={classes.Footer__Bottom__Content__Social}>
-          <a href="https://twitter.com/bridge2godsword" target="_blank">
+          <a
+            href="https://twitter.com/bridge2godsword"
+            target="_blank"
+            rel="noreferrer"
+          >
             <svg>
               <use xlinkHref="../../images/sprite.svg#icon-twitter" />
             </svg>
           </a>
-          <a href="https://www.facebook.com/bridgetogodsword" target="_blank">
+          <a
+            href="https://www.facebook.com/bridgetogodsword"
+            target="_blank"
+            rel="noreferrer"
+          >
             <svg>
               <use xlinkHref="../../images/sprite.svg#icon-facebook" />
             </svg>
@@ -51,17 +59,26 @@ const Footer = () => (
           <a
             href="https://www.linkedin.com/in/carla-unseth-955890132/"
             target="_blank"
+            rel="noreferrer"
           >
             <svg>
               <use xlinkHref="../../images/sprite.svg#icon-linkedin" />
             </svg>
           </a>
-          <a href="https://www.instagram.com/carla.unseth" target="_blank">
+          <a
+            href="https://www.instagram.com/carla.unseth"
+            target="_blank"
+            rel="noreferrer"
+          >
             <svg>
               <use xlinkHref="../../images/sprite.svg#icon-instagram" />
             </svg>
           </a>
-          <a href="https://bridgetogodsword.podbean.com/feed/" target="_blank">
+          <a
+            href="https://bridgetogodsword.podbean.com/feed/"
+            target="_blank"
+            rel="noreferrer"
+          >
             <svg>
               <use xlinkHref="../../images/sprite.svg#icon-podcast" />
             </svg>
