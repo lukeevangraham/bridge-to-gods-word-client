@@ -52,6 +52,55 @@
       padding-top: 1rem;
       display: flex;
       justify-content: space-between;
+      align-items: center;
+
+      &__Copyright {
+        flex: 0 1 25%;
+      }
+
+      &__GWW {
+        a {
+          color: $color-white;
+          border-bottom: none;
+          transition: all .2s;
+
+          &:hover {
+            color: $color-quaternary;
+          }
+        }
+        flex: 1 0 50%;
+        flex-basis: 50%;
+        text-align: center;
+        opacity: .67;
+      }
+
+      &__Social {
+        flex: 0 1 25%;
+        display: flex;
+        justify-content: flex-end;
+
+        a {
+          text-decoration: none;
+          border-bottom: none;
+
+          &:not(:last-child) {
+            margin-right: 1rem;
+          }
+
+          svg {
+            height: 2.25rem;
+            width: 2.25rem;
+            fill: $color-white;
+            transition: all 0.2s;
+          }
+
+          &:hover {
+            svg {
+              fill: $color-quaternary;
+            }
+          }
+        }
+      }
     }
   }
 }
