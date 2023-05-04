@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Layout from "../hoc/Layout/Layout";
 import DateBox from "../components/UI/DateBox/DateBox";
+import TagCard from "../components/Blog/TagCard/TagCard";
 import Sections from "../components/Sections/Sections";
 import { fetchAPI, getGlobalInfo } from "../lib/api";
 import { getMostRecentIssue } from "../lib/newsletter";
@@ -125,8 +126,10 @@ export default function Home({
                     ...
                   </div>
                   <div className={classes.latestBlog__container__text__topics}>
-                    {latestBlog.blog_topics.data.map((topic) => (
-                      <div key={topic.id}>{topic.attributes.Topic}</div>
+                    {latestBlog.blog_topics.data.map((topic, index) => (
+                      <>
+                        <TagCard tag={topic} key={index} />
+                      </>
                     ))}
                   </div>
                   <div

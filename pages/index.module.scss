@@ -107,16 +107,12 @@
         }
 
         &__topics {
-          display: flex;
-          font-size: 1.3rem;
+          // margin-top: 2rem;
           margin-bottom: 2.5rem;
-
-          & > * {
-            background-color: rgba($color-grey-dark, 0.1);
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            font-weight: 700;
-          }
+          display: flex;
+          flex-wrap: wrap;
+          font-size: 1.3rem;
+          gap: 1rem;
         }
       }
 

@@ -1,6 +1,8 @@
-import classes from "./BlogCard.module.scss";
 import Link from "next/link";
 import Image from "next/image";
+import TagCard from "../TagCard/TagCard";
+
+import classes from "./BlogCard.module.scss";
 
 const BlogCard = ({ blog }) => {
   const stripHtml = (html) => {
@@ -60,6 +62,12 @@ const BlogCard = ({ blog }) => {
             .split(" ")
             .slice(0, 20)
             .join(" ")} ...`}
+        </div>
+
+        <div className={classes.BlogCard__BelowPhoto__Tags}>
+          {blog.attributes.blog_topics.data.map((tag, index) => (
+            <TagCard key={index} tag={tag} />
+          ))}
         </div>
       </div>
     </div>

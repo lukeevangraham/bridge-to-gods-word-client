@@ -1,0 +1,14 @@
+@import "../../../styles/abstracts/variables.scss";
+
+.TagCard {
+  background-color: rgba($color-grey-dark, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+
+  a {
+
+    border-bottom: none;
+  }
+}
