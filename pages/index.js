@@ -145,15 +145,26 @@ export default function Home({
                 <div className={classes.latestBlog__container__image}>
                   <Link href={`/blog/${latestBlog.slug}`}>
                     <a>
-                      <Image
-                        src={latestBlog.primaryImage.data.attributes.url}
-                        layout="fill"
-                        objectFit="cover"
-                        alt={
-                          latestBlog.primaryImage.data.attributes
-                            .alternativeText
-                        }
-                      />
+                      {latestBlog.primaryImage.data ? (
+                        <Image
+                          src={latestBlog.primaryImage.data.attributes.url}
+                          layout="fill"
+                          objectFit="cover"
+                          alt={
+                            latestBlog.primaryImage.data.attributes
+                              .alternativeText
+                          }
+                        />
+                      ) : (
+                        <Image
+                          src={
+                            "https://res.cloudinary.com/bridge-to-god-s-word/image/upload/v1677199981/hannah_olinger_8e_Sr_C43qdro_unsplash_bb1d58a63d.jpg"
+                          }
+                          layout="fill"
+                          objectFit="cover"
+                          alt="Someone writing on paper with pen"
+                        />
+                      )}
                     </a>
                   </Link>
                 </div>
