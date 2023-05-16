@@ -20,7 +20,7 @@
   }
 
   &__BelowPrimaryImage {
-    max-width: 50rem;
+    max-width: 64rem;
     margin: auto;
 
     &__TopInfo {
@@ -33,23 +33,12 @@
 
     &__Body {
       margin-top: 3rem;
+      // p {
+      //   font-size: 1.75rem;
+      // }
       img {
         max-width: 50rem;
       }
-      // * {
-      //   max-width: 50rem;
-      // }
-
-      //  p:not(:has(> img)) {
-      //   // background-color: orangered;
-      //   max-width: 10rem;
-      //  }
-      // p {
-      //   max-width: 50rem;
-      // }
-      // p > img {
-      //   max-width: unset;
-      // }
     }
   }
 }
