@@ -37,7 +37,6 @@ const Pagination = ({ pageData }) => (
             </Link>
           ) : null}
 
-          {/* <div>...</div> */}
           <Link href={`/blog/page/${pageData.pageCount}`} passHref>
             <li><a>{pageData.pageCount}</a></li>
           </Link>
