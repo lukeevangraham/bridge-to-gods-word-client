@@ -42,7 +42,7 @@ const Contact = ({ global, contactData }) => {
     });
 
     const result = await res.json();
-    console.log("RES: ", result);
+    // console.log("RES: ", result);
     result.status === 200 ? setMessageStatus(200) : null;
   };
 
