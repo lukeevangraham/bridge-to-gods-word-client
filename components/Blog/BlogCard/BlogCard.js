@@ -50,7 +50,9 @@ const BlogCard = ({ blog }) => {
             <use xlinkHref="../../images/sprite.svg#icon-calendar" />
           </svg>
           <div>
-            {new Date(blog.attributes.DatePosted).toLocaleDateString("en-US", {
+            {new Date(
+              blog.attributes.DatePosted.replace(/-/g, "/").replace(/T.+/, "")
+            ).toLocaleDateString("en-US", {
               month: "long",
               day: "numeric",
               year: "numeric",

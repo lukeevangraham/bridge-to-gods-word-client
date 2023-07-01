@@ -1,0 +1,16 @@
+@import "../../styles/abstracts/variables.scss";
+
+.Prayer {
+  &__Point {
+    &:not(:last-child) {
+      border-bottom: 1px solid $color-quaternary;
+      margin-bottom: 3rem;
+    }
+    &__Date {
+      //   background-color: orangered;
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+  }
+}
