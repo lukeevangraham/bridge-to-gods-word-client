@@ -37,7 +37,7 @@ const Prayer = ({ global, prayerData }) => (
       <section className="row">
         {prayerData.data
           ? prayerData.data.map((point) => (
-              <div className={classes.Prayer__Point}>
+              <div className={classes.Prayer__Point} key={point.id}>
                 <div className={classes.Prayer__Point__Date}>
                   {new Date(
                     point.attributes.DatePosted.replace(/-/g, "/").replace(
