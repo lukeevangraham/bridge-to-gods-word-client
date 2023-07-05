@@ -73,6 +73,7 @@ const Contact = ({ global, contactData }) => {
                 id="name"
                 required
                 placeholder="Your First & Last Name"
+                autoComplete="name"
               />
               <label htmlFor="name" className={classes.Form__label}>
                 Your First & Last Name
@@ -85,6 +86,7 @@ const Contact = ({ global, contactData }) => {
                 id="phone"
                 className={classes.Form__input}
                 placeholder="Your Phone"
+                autoComplete="tel-national"
               />
               <label htmlFor="phone" className={classes.Form__label}>
                 Your Phone
@@ -98,6 +100,7 @@ const Contact = ({ global, contactData }) => {
                 required
                 className={classes.Form__input}
                 placeholder="Your Email"
+                autoComplete="email"
               />
               <label htmlFor="email" className={classes.Form__label}>
                 Your Email
