@@ -75,7 +75,7 @@ const Footer = () => (
             </svg>
           </a>
           <a
-            href="https://bridgetogodsword.podbean.com/feed/"
+            href="https://bridgetogodsword.podbean.com"
             target="_blank"
             rel="noreferrer"
           >
