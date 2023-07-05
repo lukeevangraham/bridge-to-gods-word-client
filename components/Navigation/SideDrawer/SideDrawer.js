@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Link from "next/link";
 import Backdrop from "../../UI/Backdrop/Backdrop";
 import NavigationItems from "../NavigationItems/NavigationItems";
 
@@ -14,7 +15,9 @@ const SideDrawer = ({ open, closed, links, button }) => {
     <>
       <Backdrop show={open} clicked={closed} />
       <div className={attachedClasses.join(" ")} onClick={closed}>
+        <Link href={"/"}>
         <div className={classes.SideDrawer__Brand}>Carla Unseth</div>
+        </Link>
         <nav>
           <NavigationItems links={links} button={button} />
         </nav>
