@@ -55,10 +55,10 @@
     padding-bottom: 1rem;
 
     font-size: small;
-    opacity: 0.67;
+    
 
     &__Border {
-      border-top: 0.5px solid $color-white;
+      border-top: 0.5px solid rgba($color-white, .67);
       width: 100%;
     }
 
@@ -76,6 +76,7 @@
 
       &__Copyright {
         flex: 0 1 25%;
+        opacity: 0.67;
       }
 
       &__GWW {
@@ -108,9 +109,11 @@
         a {
           text-decoration: none;
           border-bottom: none;
+          opacity: 0.67;
+          transition: all .3s;
 
           &:not(:last-child) {
-            margin-right: 1rem;
+            margin-right: 1.5rem;
           }
 
           svg {
@@ -121,8 +124,9 @@
           }
 
           &:hover {
+            opacity: 1;
             svg {
-              fill: $color-quaternary;
+              fill: $color-white;
             }
           }
         }

@@ -121,6 +121,14 @@
         flex: 0 0 50%;
         height: auto;
 
+        a {
+          display: block;
+          position: relative;
+          height: 100%;
+          width: 100%;
+          border: none;
+        }
+
         @include respond(tab-port) {
           height: 4rem !important;
         }
@@ -196,6 +204,10 @@
         &__excerpt {
           margin-bottom: 1rem;
         }
+      }
+
+      &__image {
+        border: none;
       }
     }
   }

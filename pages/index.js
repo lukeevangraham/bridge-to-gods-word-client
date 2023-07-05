@@ -127,9 +127,9 @@ export default function Home({
                   </div>
                   <div className={classes.latestBlog__container__text__topics}>
                     {latestBlog.blog_topics.data.map((topic, index) => (
-                      <>
-                        <TagCard tag={topic} key={index} />
-                      </>
+                      <div key={index}>
+                        <TagCard tag={topic} />
+                      </div>
                     ))}
                   </div>
                   <div
