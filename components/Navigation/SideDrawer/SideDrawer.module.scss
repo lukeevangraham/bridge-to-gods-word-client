@@ -1,7 +1,6 @@
 @import "../../../styles/abstracts/variables.scss";
 
 .SideDrawer {
-
   a {
     color: inherit;
     border-bottom: none;
@@ -18,9 +17,17 @@
   color: $color-white;
   padding: 4rem;
   font-size: $default-font-size;
-  box-shadow: 0 0 2rem rgba(17, 17, 17, .556);
-  transition: transform .3s ease-out;
+  box-shadow: 0 0 2rem rgba(17, 17, 17, 0.556);
+  transition: transform 0.3s ease-out;
 
+  &__Brand {
+    // background-color: yellowgreen;
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    margin-bottom: 2rem;
+    font-weight: 300;
+  }
 }
 
 .Open {

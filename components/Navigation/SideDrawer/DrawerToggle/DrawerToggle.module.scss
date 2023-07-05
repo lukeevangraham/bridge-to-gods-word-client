@@ -2,7 +2,7 @@
 @import "../../../../styles/abstracts/variables.scss";
 
 .DrawerToggle {
-  background-color: $color-white;
+  background-color: lighten($color-secondary, 19% );
   height: 7rem;
   width: 7rem;
   border-radius: 50%;
