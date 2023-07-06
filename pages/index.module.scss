@@ -90,7 +90,7 @@
       display: flex;
 
       @include respond(tab-port) {
-        flex-direction: column;
+        flex-direction: column-reverse;
       }
 
       &__text {
@@ -114,6 +114,10 @@
           font-size: 1.3rem;
           gap: 1rem;
         }
+
+        @include respond(tab-port) {
+          padding: 2rem 0 0 0;
+        }
       }
 
       &__image {
@@ -130,7 +134,8 @@
         }
 
         @include respond(tab-port) {
-          height: 4rem !important;
+          flex: unset;
+          height: 35rem !important;
         }
       }
     }
@@ -157,7 +162,8 @@
       flex-direction: row-reverse;
 
       @include respond(tab-port) {
-        flex-direction: column;
+        flex-direction: column-reverse;
+        margin-top: 16rem;
       }
 
       &__text {
@@ -167,6 +173,10 @@
 
         &__excerpt {
           margin-bottom: 1rem;
+        }
+
+        @include respond(tab-port) {
+          padding: 2rem 0 0 0;
         }
       }
     }
@@ -193,7 +203,8 @@
       // flex-direction: row-reverse;
 
       @include respond(tab-port) {
-        flex-direction: column;
+        flex-direction: column-reverse;
+        margin-top: 18rem;
       }
 
       &__text {
@@ -203,6 +214,10 @@
 
         &__excerpt {
           margin-bottom: 1rem;
+        }
+
+        @include respond(tab-port) {
+          padding: 2rem 0 0 0;
         }
       }
 

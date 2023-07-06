@@ -16,7 +16,7 @@ const SideDrawer = ({ open, closed, links, button }) => {
       <Backdrop show={open} clicked={closed} />
       <div className={attachedClasses.join(" ")} onClick={closed}>
         <Link href={"/"}>
-        <div className={classes.SideDrawer__Brand}>Carla Unseth</div>
+          <div className={classes.SideDrawer__Brand}>Carla Unseth</div>
         </Link>
         <nav>
           <NavigationItems links={links} button={button} />
