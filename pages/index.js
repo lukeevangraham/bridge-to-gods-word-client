@@ -111,12 +111,12 @@ export default function Home({
               <div className={classes.latestBlog__container}>
                 <div className={classes.latestBlog__container__text}>
                   <h2>Latest Blog</h2>
-                  <DateBox date={latestBlog.DatePosted} />
                   <Link href={`/blog/${latestBlog.slug}`}>
                     <a>
                       <h3>{latestBlog.Title}</h3>
                     </a>
                   </Link>
+                  <DateBox date={latestBlog.DatePosted} />
                   <div className={classes.latestBlog__container__text__excerpt}>
                     {latestBlog.Body.replace(/<br>/g, " ")
                       .replace(/<[^>]+>/g, "")
@@ -177,12 +177,12 @@ export default function Home({
               <div className={classes.Podcast__container}>
                 <div className={classes.Podcast__container__text}>
                   <h2>Latest Podcast</h2>
-                  <DateBox date={podcastData.pubDate} podcastDate={true} />
                   <Link href={`/podcast#0`}>
                     <a>
                       <h3>{podcastData.title}</h3>
                     </a>
                   </Link>
+                  <DateBox date={podcastData.pubDate} podcastDate={true} />
                   <div className={classes.latestBlog__container__text__excerpt}>
                     {podcastData.contentSnippet
                       .split(" ")
@@ -221,12 +221,12 @@ export default function Home({
               <div className={classes.Newsletter__container}>
                 <div className={classes.Newsletter__container__text}>
                   <h2>Latest Newsletter</h2>
-                  <DateBox date={newsletter.date} />
                   <Link href={newsletter.url}>
                     <a target="_blank">
                       <h3>{newsletter.firstH1}</h3>
                     </a>
                   </Link>
+                  <DateBox date={newsletter.date} />
                   <div className={classes.Newsletter__container__text__excerpt}>
                     {newsletter.secondText}
                     ...

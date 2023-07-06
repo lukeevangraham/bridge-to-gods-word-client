@@ -100,6 +100,7 @@
 
         &__excerpt {
           margin-bottom: 1rem;
+          margin-top: 1rem;
         }
 
         &__otherPosts {
@@ -214,6 +215,7 @@
 
         &__excerpt {
           margin-bottom: 1rem;
+          margin-top: 1rem;
         }
 
         @include respond(tab-port) {
