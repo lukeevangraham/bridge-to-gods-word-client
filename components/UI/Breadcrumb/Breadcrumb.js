@@ -12,6 +12,7 @@ const Breadcrumb = ({ bgImage, title, parent }) => (
         layout="fill"
         objectFit="cover"
         alt="Breadcrumb photo"
+        priority
       />
     </div>
     <div className={classes.Breadcrumb__text}>
