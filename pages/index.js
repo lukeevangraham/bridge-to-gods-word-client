@@ -116,14 +116,19 @@ export default function Home({
                       <h3>{latestBlog.Title}</h3>
                     </a>
                   </Link>
-                  <DateBox date={latestBlog.DatePosted} />
-                  <div className={classes.latestBlog__container__text__excerpt}>
-                    {latestBlog.Body.replace(/<br>/g, " ")
-                      .replace(/<[^>]+>/g, "")
-                      .split(" ")
-                      .splice(0, 32)
-                      .join(" ")}
-                    ...
+                  <div className={classes.latestBlog__container__text__dateAndExcerpt}>
+                    <DateBox date={latestBlog.DatePosted} />
+
+                    <div
+                      className={classes.latestBlog__container__text__dateAndExcerpt__excerpt}
+                    >
+                      {latestBlog.Body.replace(/<br>/g, " ")
+                        .replace(/<[^>]+>/g, "")
+                        .split(" ")
+                        .splice(0, 32)
+                        .join(" ")}
+                      ...
+                    </div>
                   </div>
                   <div className={classes.latestBlog__container__text__topics}>
                     {latestBlog.blog_topics.data.map((topic, index) => (

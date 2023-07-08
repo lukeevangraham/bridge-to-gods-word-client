@@ -98,9 +98,14 @@
         padding: 10rem;
         position: relative;
 
-        &__excerpt {
-          margin-bottom: 1rem;
-          margin-top: 1rem;
+        &__dateAndExcerpt {
+          display: flex;
+          gap: 1rem;
+
+          &__excerpt {
+            margin-bottom: 1rem;
+            // margin-top: 1rem;
+          }
         }
 
         &__otherPosts {
