@@ -45,7 +45,7 @@
         &__Image {
           position: relative;
           height: 15rem;
-          flex: 0 1 17rem;
+          flex: 0 0 17rem;
           align-self: center;
 
           @include respond(tab-port) {
