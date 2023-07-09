@@ -68,6 +68,10 @@
 
       .text {
         padding: 8rem 8rem;
+
+        @include respond(tab-port) {
+          padding: 1rem 0;
+        }
       }
     }
   }
