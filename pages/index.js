@@ -116,11 +116,17 @@ export default function Home({
                       <h3>{latestBlog.Title}</h3>
                     </a>
                   </Link>
-                  <div className={classes.latestBlog__container__text__dateAndExcerpt}>
+                  <div
+                    className={
+                      classes.latestBlog__container__text__dateAndExcerpt
+                    }
+                  >
                     <DateBox date={latestBlog.DatePosted} />
 
                     <div
-                      className={classes.latestBlog__container__text__dateAndExcerpt__excerpt}
+                      className={
+                        classes.latestBlog__container__text__dateAndExcerpt__excerpt
+                      }
                     >
                       {latestBlog.Body.replace(/<br>/g, " ")
                         .replace(/<[^>]+>/g, "")
@@ -187,13 +193,21 @@ export default function Home({
                       <h3>{podcastData.title}</h3>
                     </a>
                   </Link>
-                  <DateBox date={podcastData.pubDate} podcastDate={true} />
-                  <div className={classes.latestBlog__container__text__excerpt}>
-                    {podcastData.contentSnippet
-                      .split(" ")
-                      .splice(0, 32)
-                      .join(" ")}
-                    ...
+                  <div
+                    className={classes.Podcast__container__text__dateAndExcerpt}
+                  >
+                    <DateBox date={podcastData.pubDate} podcastDate={true} />
+                    <div
+                      className={
+                        classes.latestBlog__container__text__dateAndExcerpt__excerpt
+                      }
+                    >
+                      {podcastData.contentSnippet
+                        .split(" ")
+                        .splice(0, 32)
+                        .join(" ")}
+                      ...
+                    </div>
                   </div>
                   <div
                     className={classes.latestBlog__container__text__otherPosts}
@@ -231,10 +245,20 @@ export default function Home({
                       <h3>{newsletter.firstH1}</h3>
                     </a>
                   </Link>
-                  <DateBox date={newsletter.date} />
-                  <div className={classes.Newsletter__container__text__excerpt}>
-                    {newsletter.secondText}
-                    ...
+                  <div
+                    className={
+                      classes.Newsletter__container__text__dateAndExcerpt
+                    }
+                  >
+                    <DateBox date={newsletter.date} />
+                    <div
+                      className={
+                        classes.Newsletter__container__text__dateAndExcerpt__excerpt
+                      }
+                    >
+                      {newsletter.secondText}
+                      ...
+                    </div>
                   </div>
                   <div
                     className={classes.Newsletter__container__text__otherPosts}
