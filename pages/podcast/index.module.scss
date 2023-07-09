@@ -9,12 +9,20 @@
 
   &__Top {
     display: flex;
+    gap: 2rem;
+    align-items: flex-start;
 
     &__Image {
       height: 30rem;
       width: 100%;
       position: relative;
       flex: 0 0 50%;
+
+      img {
+        @include respond(tab-port) {
+          object-position: top;
+        }
+      }
     }
   }
 
