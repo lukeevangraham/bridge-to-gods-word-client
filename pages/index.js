@@ -108,9 +108,10 @@ export default function Home({
 
           <section className={classes.latestBlog}>
             <div className="row">
+              <h2 className={classes.mobileOnly}>Latest Blog</h2>
               <div className={classes.latestBlog__container}>
                 <div className={classes.latestBlog__container__text}>
-                  <h2>Latest Blog</h2>
+                  <h2 className={classes.desktopOnly}>Latest Blog</h2>
                   <Link href={`/blog/${latestBlog.slug}`}>
                     <a>
                       <h3>{latestBlog.Title}</h3>
@@ -185,9 +186,10 @@ export default function Home({
 
           <section className={classes.Podcast}>
             <div className="row">
+              <h2 className={classes.mobileOnly}>Latest Podcast</h2>
               <div className={classes.Podcast__container}>
                 <div className={classes.Podcast__container__text}>
-                  <h2>Latest Podcast</h2>
+                  <h2 className={classes.desktopOnly}>Latest Podcast</h2>
                   <Link href={`/podcast#0`}>
                     <a>
                       <h3>{podcastData.title}</h3>
@@ -237,9 +239,10 @@ export default function Home({
 
           <section className={classes.Newsletter}>
             <div className="row">
+              <h2 className={classes.mobileOnly}>Latest Newsletter</h2>
               <div className={classes.Newsletter__container}>
                 <div className={classes.Newsletter__container__text}>
-                  <h2>Latest Newsletter</h2>
+                  <h2 className={classes.desktopOnly}>Latest Newsletter</h2>
                   <Link href={newsletter.url}>
                     <a target="_blank">
                       <h3>{newsletter.firstH1}</h3>

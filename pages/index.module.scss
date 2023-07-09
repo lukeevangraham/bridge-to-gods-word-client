@@ -173,7 +173,7 @@
 
       @include respond(tab-port) {
         flex-direction: column-reverse;
-        margin-top: 16rem;
+        // margin-top: 16rem;
       }
 
       &__text {
@@ -219,7 +219,7 @@
 
       @include respond(tab-port) {
         flex-direction: column-reverse;
-        margin-top: 18rem;
+        // margin-top: 18rem;
       }
 
       &__text {
@@ -246,5 +246,18 @@
         border: none;
       }
     }
+  }
+}
+
+.desktopOnly {
+  @include respond(tab-port) {
+    display: none;
+  }
+}
+
+.mobileOnly {
+  display: none;
+  @include respond(tab-port) {
+    display: block;
   }
 }
