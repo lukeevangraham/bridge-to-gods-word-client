@@ -148,6 +148,13 @@
         border-radius: 3px;
         overflow: hidden;
 
+        img {
+          transition: transform 0.4s;
+          &:hover {
+            transform: scale(1.06);
+          }
+        }
+
         a {
           display: block;
           position: relative;

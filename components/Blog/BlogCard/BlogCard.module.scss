@@ -5,6 +5,12 @@
   background-color: lighten($color-secondary, 25%);
   border-radius: 7px;
   overflow: hidden;
+  transition: all .3s;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 6px 20px rgba($color-black, .5);
+  }
 
   &__PrimaryImage {
     position: relative;
