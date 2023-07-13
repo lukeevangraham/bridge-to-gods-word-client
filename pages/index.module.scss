@@ -144,6 +144,8 @@
         position: relative;
         flex: 0 0 50%;
         height: auto;
+        border-radius: 3px;
+        overflow: hidden;
 
         a {
           display: block;
