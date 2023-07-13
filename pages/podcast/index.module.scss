@@ -87,6 +87,7 @@
               padding-left: 0.5rem;
               // margin-right: 2rem;
               transition: all 0.2s;
+              flex-shrink: 0;
 
               svg {
                 fill: lighten($color-quinary-lighter, 20%);
