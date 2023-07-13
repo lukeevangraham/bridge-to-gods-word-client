@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Layout from "../../hoc/Layout/Layout";
 import Breadcrumb from "../../components/UI/Breadcrumb/Breadcrumb";
+import Fade from "react-reveal/Fade";
 import { fetchAPI, getGlobalInfo } from "../../lib/api";
 
 import classes from "./index.module.scss";
@@ -41,14 +42,16 @@ const About = ({ global, aboutData }) => (
           ></div>
 
           <div className={classes.About__Bio__Image}>
-            <div className={classes.About__Bio__Image__Media}>
-              <Image
-                src={aboutData.BioPhoto.data.attributes.url}
-                alt={aboutData.BioPhoto.data.attributes.alternativeText}
-                layout="fill"
-                objectFit="cover"
-              />
-            </div>
+            <Fade right>
+              <div className={classes.About__Bio__Image__Media}>
+                <Image
+                  src={aboutData.BioPhoto.data.attributes.url}
+                  alt={aboutData.BioPhoto.data.attributes.alternativeText}
+                  layout="fill"
+                  objectFit="cover"
+                />
+              </div>
+            </Fade>
             <div className={classes.About__Bio__Image__Caption}>
               {aboutData.BioPhoto.data.attributes.caption}
             </div>

@@ -5,6 +5,7 @@ import Layout from "../hoc/Layout/Layout";
 import DateBox from "../components/UI/DateBox/DateBox";
 import TagCard from "../components/Blog/TagCard/TagCard";
 import Sections from "../components/Sections/Sections";
+import Fade from "react-reveal/Fade";
 import { fetchAPI, getGlobalInfo } from "../lib/api";
 import { getMostRecentIssue } from "../lib/newsletter";
 import Parser from "rss-parser";
@@ -66,7 +67,9 @@ export default function Home({
                 }
               />
             </div>
-            <h1>{homeData.data.attributes.testText}</h1>
+            <Fade bottom>
+              <h1>{homeData.data.attributes.testText}</h1>
+            </Fade>
           </header>
 
           <section className={`${classes.mission} u-padding-y-medium`}>
@@ -96,12 +99,14 @@ export default function Home({
                     }
                   />
                 </div>
-                <div
-                  className={classes.text}
-                  dangerouslySetInnerHTML={{
-                    __html: homeData.data.attributes.aboutText,
-                  }}
-                ></div>
+                <Fade bottom>
+                  <div
+                    className={classes.text}
+                    dangerouslySetInnerHTML={{
+                      __html: homeData.data.attributes.aboutText,
+                    }}
+                  ></div>
+                </Fade>
               </div>
             </div>
           </section>
@@ -110,50 +115,55 @@ export default function Home({
             <div className="row">
               <h2 className={classes.mobileOnly}>Latest Blog</h2>
               <div className={classes.latestBlog__container}>
-                <div className={classes.latestBlog__container__text}>
-                  <h2 className={classes.desktopOnly}>Latest Blog</h2>
-                  <Link href={`/blog/${latestBlog.slug}`}>
-                    <a>
-                      <h3>{latestBlog.Title}</h3>
-                    </a>
-                  </Link>
-                  <div
-                    className={
-                      classes.latestBlog__container__text__dateAndExcerpt
-                    }
-                  >
-                    <DateBox date={latestBlog.DatePosted} />
-
+                <Fade bottom>
+                  <div className={classes.latestBlog__container__text}>
+                    <h2 className={classes.desktopOnly}>Latest Blog</h2>
+                    <Link href={`/blog/${latestBlog.slug}`}>
+                      <a>
+                        <h3>{latestBlog.Title}</h3>
+                      </a>
+                    </Link>
                     <div
                       className={
-                        classes.latestBlog__container__text__dateAndExcerpt__excerpt
+                        classes.latestBlog__container__text__dateAndExcerpt
                       }
                     >
-                      {latestBlog.Body.replace(/<br>/g, " ")
-                        .replace(/<[^>]+>/g, "")
-                        .split(" ")
-                        .splice(0, 32)
-                        .join(" ")}
-                      ...
+                      <DateBox date={latestBlog.DatePosted} />
+                      <div
+                        className={
+                          classes.latestBlog__container__text__dateAndExcerpt__excerpt
+                        }
+                      >
+                        {latestBlog.Body.replace(/<br>/g, " ")
+                          .replace(/<[^>]+>/g, "")
+                          .split(" ")
+                          .splice(0, 32)
+                          .join(" ")}
+                        ...
+                      </div>
+                    </div>
+                    <div
+                      className={classes.latestBlog__container__text__topics}
+                    >
+                      {latestBlog.blog_topics.data.map((topic, index) => (
+                        <div key={index}>
+                          <TagCard tag={topic} />
+                        </div>
+                      ))}
+                    </div>
+                    <div
+                      className={
+                        classes.latestBlog__container__text__otherPosts
+                      }
+                    >
+                      <h4>
+                        <Link href="/blog">
+                          <a>See other blog posts →</a>
+                        </Link>
+                      </h4>
                     </div>
                   </div>
-                  <div className={classes.latestBlog__container__text__topics}>
-                    {latestBlog.blog_topics.data.map((topic, index) => (
-                      <div key={index}>
-                        <TagCard tag={topic} />
-                      </div>
-                    ))}
-                  </div>
-                  <div
-                    className={classes.latestBlog__container__text__otherPosts}
-                  >
-                    <h4>
-                      <Link href="/blog">
-                        <a>See other blog posts →</a>
-                      </Link>
-                    </h4>
-                  </div>
-                </div>
+                </Fade>
                 <div className={classes.latestBlog__container__image}>
                   <Link href={`/blog/${latestBlog.slug}`}>
                     <a>
@@ -188,39 +198,45 @@ export default function Home({
             <div className="row">
               <h2 className={classes.mobileOnly}>Latest Podcast</h2>
               <div className={classes.Podcast__container}>
-                <div className={classes.Podcast__container__text}>
-                  <h2 className={classes.desktopOnly}>Latest Podcast</h2>
-                  <Link href={`/podcast#0`}>
-                    <a>
-                      <h3>{podcastData.title}</h3>
-                    </a>
-                  </Link>
-                  <div
-                    className={classes.Podcast__container__text__dateAndExcerpt}
-                  >
-                    <DateBox date={podcastData.pubDate} podcastDate={true} />
+                <Fade bottom>
+                  <div className={classes.Podcast__container__text}>
+                    <h2 className={classes.desktopOnly}>Latest Podcast</h2>
+                    <Link href={`/podcast#0`}>
+                      <a>
+                        <h3>{podcastData.title}</h3>
+                      </a>
+                    </Link>
                     <div
                       className={
-                        classes.latestBlog__container__text__dateAndExcerpt__excerpt
+                        classes.Podcast__container__text__dateAndExcerpt
                       }
                     >
-                      {podcastData.contentSnippet
-                        .split(" ")
-                        .splice(0, 32)
-                        .join(" ")}
-                      ...
+                      <DateBox date={podcastData.pubDate} podcastDate={true} />
+                      <div
+                        className={
+                          classes.latestBlog__container__text__dateAndExcerpt__excerpt
+                        }
+                      >
+                        {podcastData.contentSnippet
+                          .split(" ")
+                          .splice(0, 32)
+                          .join(" ")}
+                        ...
+                      </div>
+                    </div>
+                    <div
+                      className={
+                        classes.latestBlog__container__text__otherPosts
+                      }
+                    >
+                      <h4>
+                        <Link href="/podcast">
+                          <a>See other podcasts →</a>
+                        </Link>
+                      </h4>
                     </div>
                   </div>
-                  <div
-                    className={classes.latestBlog__container__text__otherPosts}
-                  >
-                    <h4>
-                      <Link href="/podcast">
-                        <a>See other podcasts →</a>
-                      </Link>
-                    </h4>
-                  </div>
-                </div>
+                </Fade>
                 <div className={classes.latestBlog__container__image}>
                   <Link href={`/podcast#0`}>
                     <a>
@@ -241,38 +257,42 @@ export default function Home({
             <div className="row">
               <h2 className={classes.mobileOnly}>Latest Newsletter</h2>
               <div className={classes.Newsletter__container}>
-                <div className={classes.Newsletter__container__text}>
-                  <h2 className={classes.desktopOnly}>Latest Newsletter</h2>
-                  <Link href={newsletter.url}>
-                    <a target="_blank">
-                      <h3>{newsletter.firstH1}</h3>
-                    </a>
-                  </Link>
-                  <div
-                    className={
-                      classes.Newsletter__container__text__dateAndExcerpt
-                    }
-                  >
-                    <DateBox date={newsletter.date} />
+                <Fade bottom>
+                  <div className={classes.Newsletter__container__text}>
+                    <h2 className={classes.desktopOnly}>Latest Newsletter</h2>
+                    <Link href={newsletter.url}>
+                      <a target="_blank">
+                        <h3>{newsletter.firstH1}</h3>
+                      </a>
+                    </Link>
                     <div
                       className={
-                        classes.Newsletter__container__text__dateAndExcerpt__excerpt
+                        classes.Newsletter__container__text__dateAndExcerpt
                       }
                     >
-                      {newsletter.secondText}
-                      ...
+                      <DateBox date={newsletter.date} />
+                      <div
+                        className={
+                          classes.Newsletter__container__text__dateAndExcerpt__excerpt
+                        }
+                      >
+                        {newsletter.secondText}
+                        ...
+                      </div>
+                    </div>
+                    <div
+                      className={
+                        classes.Newsletter__container__text__otherPosts
+                      }
+                    >
+                      <h4>
+                        <Link href="https://us6.campaign-archive.com/home/?u=6bac04db4f991f5af4f84dabb&id=3606fc3bbc">
+                          <a target="_blank">See other newsletters →</a>
+                        </Link>
+                      </h4>
                     </div>
                   </div>
-                  <div
-                    className={classes.Newsletter__container__text__otherPosts}
-                  >
-                    <h4>
-                      <Link href="https://us6.campaign-archive.com/home/?u=6bac04db4f991f5af4f84dabb&id=3606fc3bbc">
-                        <a target="_blank">See other newsletters →</a>
-                      </Link>
-                    </h4>
-                  </div>
-                </div>
+                </Fade>
                 <div className={classes.latestBlog__container__image}>
                   <Link href={newsletter.url}>
                     <a>
