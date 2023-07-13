@@ -16,6 +16,7 @@
 
     &__Image {
       flex: 0 0 33%;
+      overflow-x: hidden;
 
       &__Media {
         position: relative;
