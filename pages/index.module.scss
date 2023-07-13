@@ -16,7 +16,8 @@
     h1 {
       // position: "absolute", top: "69%", right: "5%", fontSize: "4.5rem", color: "#eee", textAlign: "right"
       position: absolute;
-      top: 60%;
+      // top: 60%;
+      bottom: 35%;
       right: 5%;
       font-size: 5rem;
       color: #eee;
@@ -30,12 +31,12 @@
       margin-left: 2rem;
       // letter-spacing:.6rem;
 
-      @include respond(phone) {
-        top: 50%;
-      }
-      @include respond(tab-port) {
-        top: 55%;
-      }
+      // @include respond(phone) {
+      //   top: 50%;
+      // }
+      // @include respond(tab-port) {
+      //   top: 55%;
+      // }
     }
   }
 
