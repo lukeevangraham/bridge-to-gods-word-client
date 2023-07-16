@@ -9,6 +9,7 @@ import Fade from "react-reveal/Fade";
 import { fetchAPI, getGlobalInfo } from "../lib/api";
 import { getMostRecentIssue } from "../lib/newsletter";
 import Parser from "rss-parser";
+import { Parallax } from "react-scroll-parallax";
 
 import classes from "./index.module.scss";
 
@@ -54,6 +55,7 @@ export default function Home({
 
         <main className={classes.main}>
           {/* <h1>{homeData.data.attributes.testText}</h1> */}
+
           <header className={classes.header}>
             <div className={classes.topImage}>
               <Image
@@ -99,6 +101,7 @@ export default function Home({
                     }
                   />
                 </div>
+
                 <Fade bottom>
                   <div
                     className={classes.text}
