@@ -56,23 +56,25 @@ export default function Home({
         <main className={classes.main}>
           {/* <h1>{homeData.data.attributes.testText}</h1> */}
 
-          <header className={classes.header}>
-            <div className={classes.topImage}>
-              <Image
-                src={homeData.data.attributes.testCover.data.attributes.url}
-                layout="fill"
-                objectFit="cover"
-                priority
-                alt={
-                  homeData.data.attributes.testCover.data.attributes
-                    .alternativeText
-                }
-              />
-            </div>
-            <Fade bottom>
-              <h1>{homeData.data.attributes.testText}</h1>
-            </Fade>
-          </header>
+
+            <header className={classes.header}>
+              <div className={classes.topImage}>
+                <Image
+                  src={homeData.data.attributes.testCover.data.attributes.url}
+                  layout="fill"
+                  objectFit="cover"
+                  priority
+                  alt={
+                    homeData.data.attributes.testCover.data.attributes
+                      .alternativeText
+                  }
+                />
+              </div>
+              <Fade bottom>
+                <h1>{homeData.data.attributes.testText}</h1>
+              </Fade>
+            </header>
+
 
           <section className={`${classes.mission} u-padding-y-medium`}>
             <div className="row">
