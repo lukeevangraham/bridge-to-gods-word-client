@@ -17,7 +17,7 @@
       // position: "absolute", top: "69%", right: "5%", fontSize: "4.5rem", color: "#eee", textAlign: "right"
       position: absolute;
       // top: 60%;
-      bottom: 30%;
+      bottom: 37%;
       right: 5%;
       font-size: 5rem;
       color: #eee;
@@ -35,9 +35,9 @@
       // @include respond(phone) {
       //   top: 50%;
       // }
-      // @include respond(tab-port) {
-      //   top: 55%;
-      // }
+      @include respond(tab-port) {
+        bottom: 30%;
+      }
     }
   }
 
