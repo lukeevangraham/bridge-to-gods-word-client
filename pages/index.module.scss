@@ -5,6 +5,7 @@
   // background-color: orangered;
   background-color: $color-primary-light;
   padding-top: 0;
+  padding-bottom: 0;
 
   .header {
     .topImage {
@@ -87,184 +88,193 @@
     }
   }
 
-  .latestBlog {
-    font-size: $default-font-size;
-    line-height: 1.5;
-
-    h2 {
-      margin-bottom: 1.8rem;
+  .lowerSections {
+    section {
+      padding: 8rem 0;
+      &:nth-child(odd) {
+        background-color: rgba($color-quinary-lighter, .2);
+      }
     }
 
-    h3 {
-      margin: 1.3rem 0;
-      border-bottom: none;
-      width: fit-content;
-    }
+    &__latestBlog {
+      font-size: $default-font-size;
+      line-height: 1.5;
 
-    &__container {
-      display: flex;
-
-      @include respond(tab-port) {
-        flex-direction: column-reverse;
+      h2 {
+        margin-bottom: 1.8rem;
       }
 
-      &__text {
-        flex: 0 0 50%;
-        padding: 10rem;
-        position: relative;
+      h3 {
+        margin: 1.3rem 0;
+        border-bottom: none;
+        width: fit-content;
+      }
 
-        &__dateAndExcerpt {
-          display: flex;
-          // align-items: center;
-          gap: 1rem;
-
-          &__excerpt {
-            margin-bottom: 2rem;
-            // margin-top: 1rem;
-          }
-        }
-
-        &__otherPosts {
-          margin-top: 1rem;
-        }
-
-        &__topics {
-          // margin-top: 2rem;
-          margin-bottom: 2.5rem;
-          display: flex;
-          flex-wrap: wrap;
-          font-size: 1.3rem;
-          gap: 1rem;
-        }
+      &__container {
+        display: flex;
 
         @include respond(tab-port) {
-          padding: 2rem 0 0 0;
+          flex-direction: column-reverse;
         }
-      }
 
-      &__image {
-        position: relative;
-        flex: 0 0 50%;
-        height: auto;
-        border-radius: 3px;
-        overflow: hidden;
+        &__text {
+          flex: 0 0 50%;
+          padding: 10rem;
+          position: relative;
 
-        img {
-          transition: transform 0.4s;
-          &:hover {
-            transform: scale(1.06);
+          &__dateAndExcerpt {
+            display: flex;
+            // align-items: center;
+            gap: 1rem;
+
+            &__excerpt {
+              margin-bottom: 2rem;
+              // margin-top: 1rem;
+            }
+          }
+
+          &__otherPosts {
+            margin-top: 1rem;
+          }
+
+          &__topics {
+            // margin-top: 2rem;
+            margin-bottom: 2.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            font-size: 1.3rem;
+            gap: 1rem;
+          }
+
+          @include respond(tab-port) {
+            padding: 2rem 0 0 0;
           }
         }
 
-        a {
-          display: block;
+        &__image {
           position: relative;
-          height: 100%;
-          width: 100%;
+          flex: 0 0 50%;
+          height: auto;
+          border-radius: 3px;
+          overflow: hidden;
+
+          img {
+            transition: transform 0.4s;
+            &:hover {
+              transform: scale(1.06);
+            }
+          }
+
+          a {
+            display: block;
+            position: relative;
+            height: 100%;
+            width: 100%;
+            border: none;
+          }
+
+          @include respond(tab-port) {
+            flex: unset;
+            height: 35rem !important;
+          }
+        }
+      }
+    }
+
+    &__Podcast {
+      font-size: $default-font-size;
+      line-height: 1.5;
+      // margin: 8rem auto;
+
+      h2 {
+        margin-bottom: 1.8rem;
+      }
+
+      h3 {
+        margin: 1.3rem 0;
+        border-bottom: none;
+        width: fit-content;
+      }
+      // background-color: orangered;
+
+      &__container {
+        display: flex;
+        flex-direction: row-reverse;
+
+        @include respond(tab-port) {
+          flex-direction: column-reverse;
+          // margin-top: 16rem;
+        }
+
+        &__text {
+          &__dateAndExcerpt {
+            display: flex;
+            gap: 1rem;
+
+            &__excerpt {
+              margin-bottom: 1rem;
+            }
+          }
+
+          flex: 0 0 50%;
+          padding: 10rem;
+          position: relative;
+
+          @include respond(tab-port) {
+            padding: 2rem 0 0 0;
+          }
+        }
+      }
+    }
+
+    &__Newsletter {
+      font-size: $default-font-size;
+      line-height: 1.5;
+      // margin: 8rem auto;
+
+      h2 {
+        margin-bottom: 1.8rem;
+      }
+
+      h3 {
+        margin: 1.3rem 0;
+        border-bottom: none;
+        width: fit-content;
+      }
+      // background-color: orangered;
+
+      &__container {
+        display: flex;
+        // flex-direction: row-reverse;
+
+        @include respond(tab-port) {
+          flex-direction: column-reverse;
+          // margin-top: 18rem;
+        }
+
+        &__text {
+          flex: 0 0 50%;
+          padding: 10rem;
+          position: relative;
+
+          &__dateAndExcerpt {
+            display: flex;
+            gap: 1rem;
+
+            &__excerpt {
+              margin-bottom: 1rem;
+              // margin-top: 1rem;
+            }
+          }
+
+          @include respond(tab-port) {
+            padding: 2rem 0 0 0;
+          }
+        }
+
+        &__image {
           border: none;
         }
-
-        @include respond(tab-port) {
-          flex: unset;
-          height: 35rem !important;
-        }
-      }
-    }
-  }
-
-  .Podcast {
-    font-size: $default-font-size;
-    line-height: 1.5;
-    margin: 8rem auto;
-
-    h2 {
-      margin-bottom: 1.8rem;
-    }
-
-    h3 {
-      margin: 1.3rem 0;
-      border-bottom: none;
-      width: fit-content;
-    }
-    // background-color: orangered;
-
-    &__container {
-      display: flex;
-      flex-direction: row-reverse;
-
-      @include respond(tab-port) {
-        flex-direction: column-reverse;
-        // margin-top: 16rem;
-      }
-
-      &__text {
-        &__dateAndExcerpt {
-          display: flex;
-          gap: 1rem;
-
-          &__excerpt {
-            margin-bottom: 1rem;
-          }
-        }
-
-        flex: 0 0 50%;
-        padding: 10rem;
-        position: relative;
-
-        @include respond(tab-port) {
-          padding: 2rem 0 0 0;
-        }
-      }
-    }
-  }
-
-  .Newsletter {
-    font-size: $default-font-size;
-    line-height: 1.5;
-    margin: 8rem auto;
-
-    h2 {
-      margin-bottom: 1.8rem;
-    }
-
-    h3 {
-      margin: 1.3rem 0;
-      border-bottom: none;
-      width: fit-content;
-    }
-    // background-color: orangered;
-
-    &__container {
-      display: flex;
-      // flex-direction: row-reverse;
-
-      @include respond(tab-port) {
-        flex-direction: column-reverse;
-        // margin-top: 18rem;
-      }
-
-      &__text {
-        flex: 0 0 50%;
-        padding: 10rem;
-        position: relative;
-
-        &__dateAndExcerpt {
-          display: flex;
-          gap: 1rem;
-
-          &__excerpt {
-            margin-bottom: 1rem;
-            // margin-top: 1rem;
-          }
-        }
-
-        @include respond(tab-port) {
-          padding: 2rem 0 0 0;
-        }
-      }
-
-      &__image {
-        border: none;
       }
     }
   }

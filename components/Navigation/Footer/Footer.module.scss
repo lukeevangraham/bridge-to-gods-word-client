@@ -91,10 +91,13 @@
       }
 
       &__GWW {
+        font-size: 1.1rem;
         a {
           color: $color-white;
+          opacity: .5;
           border-bottom: none;
           transition: all 0.2s;
+          // text-transform: uppercase;
 
           &:hover {
             color: $color-quaternary;
