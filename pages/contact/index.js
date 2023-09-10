@@ -1,3 +1,4 @@
+import SEO from "../../components/SEO/SEO";
 import { useState } from "react";
 import Layout from "../../hoc/Layout/Layout";
 import Breadcrumb from "../../components/UI/Breadcrumb/Breadcrumb";
@@ -127,22 +128,31 @@ const Contact = ({ global, contactData }) => {
   }
 
   return (
-    <Layout global={global}>
-      <Breadcrumb
-        title="Contact"
-        bgImage={
-          "https://res.cloudinary.com/bridge-to-god-s-word/image/upload/v1674277225/amador_loureiro_B_Vy_Nlch_Wqzs_unsplash_bd31f5f21c.jpg?updated_at=2023-01-21T05:00:30.095Z"
-        }
+    <>
+      <SEO
+        metaData={{
+          metaTitle: "Carla Unseth - Contact",
+          metaDescription:
+            "Get in Touch with Bridge - Your Connection to Engaging Content. Reach out to us effortlessly through our contact page. We're here to listen, answer questions, and foster meaningful connections. Connect with us today!",
+        }}
       />
-      <main>
-        <div className={classes.Contact}>
-          <div className="row">
-            <h1 className="u-margin-bottom-medium">Contact Me</h1>
-            <div>{contactForm}</div>
+      <Layout global={global}>
+        <Breadcrumb
+          title="Contact"
+          bgImage={
+            "https://res.cloudinary.com/bridge-to-god-s-word/image/upload/v1674277225/amador_loureiro_B_Vy_Nlch_Wqzs_unsplash_bd31f5f21c.jpg?updated_at=2023-01-21T05:00:30.095Z"
+          }
+        />
+        <main>
+          <div className={classes.Contact}>
+            <div className="row">
+              <h1 className="u-margin-bottom-medium">Contact Me</h1>
+              <div>{contactForm}</div>
+            </div>
           </div>
-        </div>
-      </main>
-    </Layout>
+        </main>
+      </Layout>
+    </>
   );
 };
 

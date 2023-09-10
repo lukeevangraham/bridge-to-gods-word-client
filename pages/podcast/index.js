@@ -1,3 +1,4 @@
+import SEO from "../../components/SEO/SEO";
 import { useState } from "react";
 import Image from "next/image";
 import Layout from "../../hoc/Layout/Layout";
@@ -29,106 +30,117 @@ const Podcast = ({ global, podcastFeed }) => {
   // }
 
   return (
-    <Layout global={global}>
-      <Breadcrumb
-        title="Podcast"
-        bgImage={
-          "https://res.cloudinary.com/bridge-to-god-s-word/image/upload/v1678854939/cowomen_UU_Ppu2s_YV_6_E_unsplash_4f22083296.jpg"
-        }
+    <>
+      <SEO
+        metaData={{
+          metaTitle: "Carla Unseth - Podcast",
+          metaDescription:
+            "Dive into Our Captivating Podcast Series! Tune in to thought-provoking discussions and engaging conversations on a variety of topics. Join us for insightful content that enriches your perspective.",
+        }}
       />
-      <main className={classes.Podcast}>
-        <div className="row">
-          <section className={classes.Podcast__Top}>
-            <div className={classes.Podcast__Top__Image}>
-              <Image
-                src={podcastFeed.image.url}
-                layout="fill"
-                objectFit="contain"
-                alt={podcastFeed.image.alternativeText}
-              />
-            </div>
-            <div>
-              <h2>{podcastFeed.title} Podcast</h2>
-              <p>{podcastFeed.description}</p>
-            </div>
-          </section>
-          <section className={classes.Podcast__Main}>
-            {/* <h3>Episodes</h3> */}
-            <div className={classes.Podcast__Main__Episodes}>
-              {podcastFeed.items.map((episode, index) => (
-                <div
-                  key={index}
-                  className={classes.Podcast__Main__Episodes__Episode}
-                  id={index}
-                >
+      <Layout global={global}>
+        <Breadcrumb
+          title="Podcast"
+          bgImage={
+            "https://res.cloudinary.com/bridge-to-god-s-word/image/upload/v1678854939/cowomen_UU_Ppu2s_YV_6_E_unsplash_4f22083296.jpg"
+          }
+        />
+        <main className={classes.Podcast}>
+          <div className="row">
+            <section className={classes.Podcast__Top}>
+              <div className={classes.Podcast__Top__Image}>
+                <Image
+                  src={podcastFeed.image.url}
+                  layout="fill"
+                  objectFit="contain"
+                  alt={podcastFeed.image.alternativeText}
+                />
+              </div>
+              <div>
+                <h2>{podcastFeed.title} Podcast</h2>
+                <p>{podcastFeed.description}</p>
+              </div>
+            </section>
+            <section className={classes.Podcast__Main}>
+              {/* <h3>Episodes</h3> */}
+              <div className={classes.Podcast__Main__Episodes}>
+                {podcastFeed.items.map((episode, index) => (
                   <div
-                    className={classes.Podcast__Main__Episodes__Episode__Image}
-                  >
-                    <Image
-                      src={episode.itunes.image}
-                      layout="fill"
-                      objectFit="contain"
-                      alt="Podcast image"
-                    />
-                  </div>
-                  <div
-                    className={classes.Podcast__Main__Episodes__Episode__Info}
+                    key={index}
+                    className={classes.Podcast__Main__Episodes__Episode}
+                    id={index}
                   >
                     <div
                       className={
-                        classes.Podcast__Main__Episodes__Episode__Info__Top
+                        classes.Podcast__Main__Episodes__Episode__Image
                       }
-                      onClick={() => setSelectedAudio(episode)}
+                    >
+                      <Image
+                        src={episode.itunes.image}
+                        layout="fill"
+                        objectFit="contain"
+                        alt="Podcast image"
+                      />
+                    </div>
+                    <div
+                      className={classes.Podcast__Main__Episodes__Episode__Info}
                     >
                       <div
                         className={
-                          classes.Podcast__Main__Episodes__Episode__Info__Top__Play
+                          classes.Podcast__Main__Episodes__Episode__Info__Top
                         }
+                        onClick={() => setSelectedAudio(episode)}
                       >
-                        <svg>
-                          <use xlinkHref="../images/sprite.svg#icon-play3"></use>
-                        </svg>
-                      </div>
-                      <div>
                         <div
                           className={
-                            classes.Podcast__Main__Episodes__Episode__Info__Top__Date
+                            classes.Podcast__Main__Episodes__Episode__Info__Top__Play
                           }
                         >
-                          {new Date(episode.pubDate).toLocaleDateString(
-                            "en-US",
-                            {
-                              month: "long",
-                              day: "numeric",
-                              year: "numeric",
+                          <svg>
+                            <use xlinkHref="../images/sprite.svg#icon-play3"></use>
+                          </svg>
+                        </div>
+                        <div>
+                          <div
+                            className={
+                              classes.Podcast__Main__Episodes__Episode__Info__Top__Date
                             }
-                          )}
-                        </div>
-                        <div
-                          className={
-                            classes.Podcast__Main__Episodes__Episode__Info__Top__Title
-                          }
-                        >
-                          {episode.title}
+                          >
+                            {new Date(episode.pubDate).toLocaleDateString(
+                              "en-US",
+                              {
+                                month: "long",
+                                day: "numeric",
+                                year: "numeric",
+                              }
+                            )}
+                          </div>
+                          <div
+                            className={
+                              classes.Podcast__Main__Episodes__Episode__Info__Top__Title
+                            }
+                          >
+                            {episode.title}
+                          </div>
                         </div>
                       </div>
+                      <p>{episode.contentSnippet}</p>
                     </div>
-                    <p>{episode.contentSnippet}</p>
                   </div>
-                </div>
-              ))}
-            </div>
-          </section>
-        </div>
-      </main>
-      {/* {console.log("PF: ", podcastFeed)} */}
-      {selectedAudio ? (
-        <AudioPlayer
-          episode={selectedAudio}
-          clearSelection={setSelectedAudio}
-        />
-      ) : null}
-    </Layout>
+                ))}
+              </div>
+            </section>
+          </div>
+        </main>
+        {/* {console.log("PF: ", podcastFeed)} */}
+        {selectedAudio ? (
+          <AudioPlayer
+            episode={selectedAudio}
+            clearSelection={setSelectedAudio}
+          />
+        ) : null}
+      </Layout>
+    </>
   );
 };
 

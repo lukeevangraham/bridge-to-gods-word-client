@@ -1,3 +1,4 @@
+import SEO from "../../components/SEO/SEO";
 import { fetchAPI, getGlobalInfo, getAllBlogSlugs } from "../../lib/api";
 import Image from "next/image";
 import Layout from "../../hoc/Layout/Layout";
@@ -35,6 +36,8 @@ const Blog = ({ blogData, global }) => {
   }
 
   return (
+    <>
+    <SEO metaData={{ metaTitle: `Carla Unseth - ${blogData.attributes.Title}` }} />
     <Layout global={global}>
       <>
         <Breadcrumb
@@ -76,6 +79,7 @@ const Blog = ({ blogData, global }) => {
         </div>
       </>
     </Layout>
+    </>
   );
 };
 
