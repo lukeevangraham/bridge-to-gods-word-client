@@ -1,3 +1,4 @@
+import SEO from "../../components/SEO/SEO";
 import Layout from "../../hoc/Layout/Layout";
 import Breadcrumb from "../../components/UI/Breadcrumb/Breadcrumb";
 import { fetchAPI, getGlobalInfo } from "../../lib/api";
@@ -26,6 +27,8 @@ export async function getStaticProps() {
 }
 
 const Prayer = ({ global, prayerData }) => (
+  <>
+  <SEO metaData={{ metaTitle: "Carla Unseth - Prayer", metaDescription: "Current prayer requests for the ministry of Carla Unseth" }} />
   <Layout global={global}>
     <>
       <Breadcrumb
@@ -59,6 +62,7 @@ const Prayer = ({ global, prayerData }) => (
       </section>
     </main>
   </Layout>
+  </>
 );
 
 export default Prayer;
