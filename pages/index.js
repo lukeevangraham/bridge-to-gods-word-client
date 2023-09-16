@@ -48,7 +48,7 @@ export default function Home({
   return (
     <>
       <SEO
-        metaData={{ metaTitle: "Carla Unseth - A Bridge To God&apos;s Word", metaDescription: "Discover the Bridge to God's Word - Your Ultimate Spiritual Journey Awaits! Explore profound teachings, connect with a vibrant community, and deepen your faith. Join us today!" }}
+        metaData={{ metaTitle: "Carla Unseth - A Bridge To God's Word", metaDescription: "Discover the Bridge to God's Word - Your Ultimate Spiritual Journey Awaits! Explore profound teachings, connect with a vibrant community, and deepen your faith. Join us today!" }}
       />
 
       <Layout global={globalData}>
