@@ -16,7 +16,7 @@ function MyApp({ Component, pageProps }) {
     </ParallaxProvider>
     {/* <!-- Google tag (gtag.js) --> */}
 <Script async src="https://www.googletagmanager.com/gtag/js?id=G-R9P4ZTM9L6" />
-<Script>
+<Script id="google-analytics">
   {`window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
