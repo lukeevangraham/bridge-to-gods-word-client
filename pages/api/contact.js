@@ -41,7 +41,10 @@ export default function handler(req, res) {
   let data = JSON.stringify({
     recipients: [
       {
-        address: "carla.unseth@pbti.org, luke@grahamwebworks.com",
+        address: "carla.unseth@pbti.org",
+      },
+      {
+        address: "luke@grahamwebworks.com",
       },
     ],
     content: {
