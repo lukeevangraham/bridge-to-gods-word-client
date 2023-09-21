@@ -46,7 +46,7 @@ export default function handler(req, res) {
     ],
     content: {
       from: {
-        email: "donotreply@bridgetogodsword.org",
+        email: "luke@mail.grahamwebworks.com",
         name: "BRIDGETOGODSWORD.ORG",
       },
       subject: "Contact Form Submission from bridgetogodsword.org",
