@@ -10,7 +10,30 @@ const Footer = () => (
           <Link href="/">Carla Unseth</Link>
         </h3>
       </div>
-      <div className={classes.Footer__Site}>
+      <div>
+        <h4>Subscribe To Our</h4>
+        <ul>
+          <li>
+            <a
+              href="http://eepurl.com/gdU0eD"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Monthly Newsletter
+            </a>
+          </li>
+          <li>
+            <a
+              href="http://eepurl.com/dFm7iX"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Weekly Prayer Email
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div>
         <h4>Useful Links</h4>
         <ul>
           <li>

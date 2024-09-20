@@ -13,6 +13,7 @@
   padding-bottom: 7rem;
 
   &__Brand {
+    flex: 1 1 auto;
     a {
       border-bottom: none;
       color: inherit;
@@ -23,6 +24,7 @@
 
   & > *:first-child {
     display: flex;
+    gap: 10rem;
     justify-content: space-between;
 
     @include respond(tab-port) {
@@ -32,12 +34,14 @@
     // padding: 0;
   }
 
-  &__Site {
+  & > *:first-child > div:not(:first-child) {
     line-height: 1.5;
+    h4 {
+      text-transform: uppercase;;
+    }
     @include respond(tab-port) {
       h4 {
-        text-transform: uppercase;
-        margin-bottom: .7rem;
+        margin-bottom: 0.7rem;
       }
       ul {
         li {
@@ -94,7 +98,7 @@
         font-size: 1.1rem;
         a {
           color: $color-white;
-          opacity: .5;
+          opacity: 0.5;
           border-bottom: none;
           transition: all 0.2s;
           // text-transform: uppercase;
